@@ -400,6 +400,7 @@ MonoBehaviour:
   moveSpeed: 4
   resetSpeed: 4
   runSpeed: 9
+  crouchSpeed: 2
   jumpForce: 200
   animator: {fileID: 311202881}
   horizontalInput: Horizontal

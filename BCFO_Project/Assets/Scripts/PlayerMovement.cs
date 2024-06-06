@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveSpeed = 1.0f;
     [SerializeField] private float resetSpeed = 1.0f;
     [SerializeField] private float runSpeed = 1.0f;
+    [SerializeField] private float crouchSpeed = 1.0f;
     [SerializeField] private float jumpForce = 600.0f;
     [SerializeField] private Animator animator;
 
@@ -53,13 +54,15 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("HasJumped", true);
         }
 
-        if (Input.GetButtonDown(downInput))
+        if (Input.GetButtonDown(downInput) || (Input.GetButton(downInput) && Input.GetButton(horizontalInput)))
         {
+            moveSpeed = crouchSpeed;
             animator.SetBool("IsCrouching", true);
         }
 
         if (Input.GetButtonUp(downInput))
         {
+            moveSpeed = resetSpeed;
             animator.SetBool("IsCrouching", false);
         }
 
