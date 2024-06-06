@@ -7,13 +7,16 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("VARIABLES")]
     [SerializeField] private float moveSpeed = 1.0f;
+    [SerializeField] private float resetSpeed = 1.0f;
+    [SerializeField] private float runSpeed = 1.0f;
     [SerializeField] private float jumpForce = 600.0f;
     [SerializeField] private Animator animator;
 
-    [Header("PLAYER Movement")]
+    [Header("PLAYER Mechanics")]
     [SerializeField] private string horizontalInput;
     [SerializeField] private string verticalInput;
     [SerializeField] private string downInput;
+    [SerializeField] private string shiftRun;
     [SerializeField] private string Attack1;
     [SerializeField] private string Attack2;
     [SerializeField] private string Attack3;
@@ -62,6 +65,19 @@ public class PlayerMovement : MonoBehaviour
         horizontalMovement = Input.GetAxisRaw(horizontalInput) * moveSpeed;
         animator.SetFloat("speed", Mathf.Abs(horizontalMovement));
 
+        if (Input.GetButton(horizontalInput) && Input.GetButtonDown(shiftRun))
+        {
+            moveSpeed = runSpeed;
+            animator.SetBool("IsRunning", true);
+            Debug.Log("running");
+        }
+
+        if (Input.GetButtonUp(shiftRun) || Input.GetButtonUp(horizontalInput))
+        {
+            moveSpeed = resetSpeed;
+            animator.SetBool("IsRunning", false);
+        }
+
         if (horizontalMovement < 0)
         {
             spriteRenderer.flipX = true;
@@ -93,7 +109,6 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.Log("forward");
         }
-        
 
         if (Input.GetButtonDown(Attack1))
         {
