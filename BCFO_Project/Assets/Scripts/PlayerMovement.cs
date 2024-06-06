@@ -33,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public GameObject attackPoint1;
     [SerializeField] public GameObject attackPoint2;
     [SerializeField] public GameObject attackPoint3;
+    [SerializeField] public GameObject runAttackPoint3;
     [SerializeField] public float radius;
     public LayerMask enemies;
 
@@ -76,6 +77,7 @@ public class PlayerMovement : MonoBehaviour
         {
             moveSpeed = resetSpeed;
             animator.SetBool("IsRunning", false);
+            //animator.SetBool("RunAttack3", false);
         }
 
         if (horizontalMovement < 0)
@@ -122,7 +124,12 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("attack2");
         }
         
-        if (Input.GetButtonDown(Attack3))
+        if (Input.GetButton(Attack3) && Input.GetButton(shiftRun))
+        {
+            animator.SetBool("RunAttack3", true);
+            Debug.Log("runAttack3");
+        }
+        else if (Input.GetButtonDown(Attack3))
         {
             animator.SetBool("Attack3", true);
             Debug.Log("attack3");
@@ -157,6 +164,15 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("HitEnemy");
         }
     }
+    public void runAttack3()
+    {
+        Collider2D[] enemy = Physics2D.OverlapCircleAll(attackPoint3.transform.position, radius, enemies);
+
+        foreach (Collider2D enemyGameobject in enemy)
+        {
+            Debug.Log("HitEnemy");
+        }
+    }
 
     public void endAttack1()
     {
@@ -172,6 +188,11 @@ public class PlayerMovement : MonoBehaviour
     {
         animator.SetBool("Attack3", false);
     }
+    
+    public void endRunAttack3()
+    {
+        animator.SetBool("RunAttack3", false);
+    }
 
     private void OnDrawGizmos()
     {
@@ -179,6 +200,7 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.DrawWireSphere(attackPoint1.transform.position, radius);
         Gizmos.DrawWireSphere(attackPoint2.transform.position, radius);
         Gizmos.DrawWireSphere(attackPoint3.transform.position, radius);
+        Gizmos.DrawWireSphere(runAttackPoint3.transform.position, radius);
     }
 
     private void FixedUpdate()
