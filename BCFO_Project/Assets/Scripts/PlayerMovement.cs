@@ -1,0 +1,186 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel.Design;
+using UnityEngine;
+
+public class PlayerMovement : MonoBehaviour
+{
+    [Header("VARIABLES")]
+    [SerializeField] private float moveSpeed = 1.0f;
+    [SerializeField] private float jumpForce = 600.0f;
+    [SerializeField] private Animator animator;
+
+    [Header("PLAYER Movement")]
+    [SerializeField] private string horizontalInput;
+    [SerializeField] private string verticalInput;
+    [SerializeField] private string downInput;
+    [SerializeField] private string Attack1;
+    [SerializeField] private string Attack2;
+    [SerializeField] private string Attack3;
+    [SerializeField] private string Dodge;
+
+    [Header("DRAGABLE OBJECTS")]
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+
+    private bool canJump = false;
+    private float horizontalMovement;
+
+    [Header("HIT BOXES")]
+    [SerializeField] public GameObject attackPoint1;
+    [SerializeField] public GameObject attackPoint2;
+    [SerializeField] public GameObject attackPoint3;
+    [SerializeField] public float radius;
+    public LayerMask enemies;
+
+    void Update()
+    {
+        HandleMovement();
+        HandleInputs();
+    }
+
+    private void HandleMovement()
+    {
+
+        if (Input.GetButtonDown(verticalInput) && canJump)
+        {
+            rb.AddForce(new Vector2(0, jumpForce));
+            canJump = false;
+            animator.SetBool("HasJumped", true);
+        }
+
+        if (Input.GetButtonDown(downInput))
+        {
+            animator.SetBool("IsCrouching", true);
+        }
+
+        if (Input.GetButtonUp(downInput))
+        {
+            animator.SetBool("IsCrouching", false);
+        }
+
+        horizontalMovement = Input.GetAxisRaw(horizontalInput) * moveSpeed;
+        animator.SetFloat("speed", Mathf.Abs(horizontalMovement));
+
+        if (horizontalMovement < 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else if (horizontalMovement > 0)
+        {
+            spriteRenderer.flipX = false;
+        }
+    }
+
+    private void HandleInputs()
+    {
+        if (Input.GetButton(horizontalInput) && Input.GetButton(downInput))
+        {
+            Debug.Log("down-forward");
+        }
+
+        if (Input.GetButtonDown(downInput))
+        {
+            Debug.Log("down");
+        }
+
+        if (Input.GetButtonDown(verticalInput))
+        {
+            Debug.Log("Jump");
+        }
+
+        if (Input.GetButtonDown(horizontalInput))
+        {
+            Debug.Log("forward");
+        }
+        
+
+        if (Input.GetButtonDown(Attack1))
+        {
+            animator.SetBool("Attack1", true);
+            Debug.Log("attack1");
+        }
+        
+        if (Input.GetButtonDown(Attack2))
+        {
+            animator.SetBool("Attack2", true);
+            Debug.Log("attack2");
+        }
+        
+        if (Input.GetButtonDown(Attack3))
+        {
+            animator.SetBool("Attack3", true);
+            Debug.Log("attack3");
+        }
+    }
+
+    public void attack1()
+    {
+        Collider2D[] enemy = Physics2D.OverlapCircleAll(attackPoint1.transform.position, radius, enemies);
+
+        foreach (Collider2D enemyGameobject in enemy)
+        {
+            Debug.Log("HitEnemy");
+        }
+    }
+    
+    public void attack2()
+    {
+        Collider2D[] enemy = Physics2D.OverlapCircleAll(attackPoint2.transform.position, radius, enemies);
+
+        foreach (Collider2D enemyGameobject in enemy)
+        {
+            Debug.Log("HitEnemy");
+        }
+    }
+    public void attack3()
+    {
+        Collider2D[] enemy = Physics2D.OverlapCircleAll(attackPoint3.transform.position, radius, enemies);
+
+        foreach (Collider2D enemyGameobject in enemy)
+        {
+            Debug.Log("HitEnemy");
+        }
+    }
+
+    public void endAttack1()
+    {
+        animator.SetBool("Attack1", false);
+    }
+    
+    public void endAttack2()
+    {
+        animator.SetBool("Attack2", false);
+    }
+
+    public void endAttack3()
+    {
+        animator.SetBool("Attack3", false);
+    }
+
+    private void OnDrawGizmos()
+    {
+
+        Gizmos.DrawWireSphere(attackPoint1.transform.position, radius);
+        Gizmos.DrawWireSphere(attackPoint2.transform.position, radius);
+        Gizmos.DrawWireSphere(attackPoint3.transform.position, radius);
+    }
+
+    private void FixedUpdate()
+    {
+        rb.velocity = new Vector2(horizontalMovement, rb.velocity.y);
+        
+    }
+
+    public void LandedOnPlatform()
+    {
+        canJump = true;
+        animator.SetBool("HasJumped", false);
+    }
+
+    public void FellOffPlatform()
+    {
+        canJump = false;
+        animator.SetBool("HasJumped", true);
+    }
+}
