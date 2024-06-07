@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public GameObject attackPoint2;
     [SerializeField] public GameObject attackPoint3;
     [SerializeField] public GameObject runAttackPoint3;
+    [SerializeField] public GameObject dahAttackPoint2;
     [SerializeField] public float radius;
     public LayerMask enemies;
 
@@ -148,7 +149,6 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("HitEnemy");
         }
     }
-    
     public void attack2()
     {
         Collider2D[] enemy = Physics2D.OverlapCircleAll(attackPoint2.transform.position, radius, enemies);
@@ -176,6 +176,15 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("HitEnemy");
         }
     }
+    public void dahAttack2()
+    {
+       Collider2D[] enemy = Physics2D.OverlapCircleAll(attackPoint3.transform.position, radius, enemies);
+
+       foreach (Collider2D enemyGameobject in enemy)
+       {
+           Debug.Log("HitEnemy");
+       } 
+    }
 
     public void endAttack1()
     {
@@ -196,14 +205,28 @@ public class PlayerMovement : MonoBehaviour
     {
         animator.SetBool("RunAttack3", false);
     }
+    public void endDAHAttack2()
+    {
+        animator.SetBool("DAH", false);
+        animator.SetBool("Attack1", false);
+    }
+
+    public void DAH()
+    {
+        Debug.Log("Can EWHF");
+        if (Input.GetButton(Attack1))
+        {
+            animator.SetBool("DAH", true);
+        }
+    }
 
     private void OnDrawGizmos()
     {
-
         Gizmos.DrawWireSphere(attackPoint1.transform.position, radius);
         Gizmos.DrawWireSphere(attackPoint2.transform.position, radius);
         Gizmos.DrawWireSphere(attackPoint3.transform.position, radius);
         Gizmos.DrawWireSphere(runAttackPoint3.transform.position, radius);
+        Gizmos.DrawWireSphere(dahAttackPoint2.transform.position, radius);
     }
 
     private void FixedUpdate()

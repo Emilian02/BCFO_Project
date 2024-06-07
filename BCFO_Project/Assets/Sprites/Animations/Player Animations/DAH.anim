@@ -20,20 +20,20 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 9d4e9c66a001e944ba946d6416966792, type: 3}
-    - time: 0.04
-      value: {fileID: 21300000, guid: 95961ab8b2d260047b27c7ada989b29e, type: 3}
-    - time: 0.08
-      value: {fileID: 21300000, guid: 30834648df5d0ce42a02c858149766fa, type: 3}
-    - time: 0.12
-      value: {fileID: 21300000, guid: 232f77c114aa3e746b5c8cd8941c8f8d, type: 3}
-    - time: 0.16
-      value: {fileID: 21300000, guid: b9545e3c70c6fc948864a386a515f251, type: 3}
+      value: {fileID: 21300000, guid: a805a9d23d1e5c04ebcb6138ae9fddcf, type: 3}
+    - time: 0.1
+      value: {fileID: 21300000, guid: 44a50fc410187f6489cae8ac74be7325, type: 3}
+    - time: 0.2
+      value: {fileID: 21300000, guid: e9634110f205eca4298cd1605ffe0ba4, type: 3}
+    - time: 0.3
+      value: {fileID: 21300000, guid: 0443296a79bc66f45be9de4cb115cd15, type: 3}
+    - time: 0.4
+      value: {fileID: 21300000, guid: 27efda379b60b5343bfaa3a3b8fd4901, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 25
+  m_SampleRate: 10
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -48,17 +48,17 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 9d4e9c66a001e944ba946d6416966792, type: 3}
-    - {fileID: 21300000, guid: 95961ab8b2d260047b27c7ada989b29e, type: 3}
-    - {fileID: 21300000, guid: 30834648df5d0ce42a02c858149766fa, type: 3}
-    - {fileID: 21300000, guid: 232f77c114aa3e746b5c8cd8941c8f8d, type: 3}
-    - {fileID: 21300000, guid: b9545e3c70c6fc948864a386a515f251, type: 3}
+    - {fileID: 21300000, guid: a805a9d23d1e5c04ebcb6138ae9fddcf, type: 3}
+    - {fileID: 21300000, guid: 44a50fc410187f6489cae8ac74be7325, type: 3}
+    - {fileID: 21300000, guid: e9634110f205eca4298cd1605ffe0ba4, type: 3}
+    - {fileID: 21300000, guid: 0443296a79bc66f45be9de4cb115cd15, type: 3}
+    - {fileID: 21300000, guid: 27efda379b60b5343bfaa3a3b8fd4901, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.19999999
+    m_StopTime: 0.5
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -77,4 +77,18 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.2
+    functionName: dahAttack2
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.4
+    functionName: endDAHAttack2
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
