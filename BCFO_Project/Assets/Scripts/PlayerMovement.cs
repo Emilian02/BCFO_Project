@@ -34,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public GameObject attackPoint1;
     [SerializeField] public GameObject attackPoint2;
     [SerializeField] public GameObject attackPoint3;
+    [SerializeField] public GameObject forwardAttackPoint3;
     [SerializeField] public GameObject runAttackPoint3;
     [SerializeField] public GameObject dahAttackPoint2;
     [SerializeField] public float radius;
@@ -133,6 +134,11 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("RunAttack3", true);
             Debug.Log("runAttack3");
         }
+        else if (Input.GetButton(Attack3) && Input.GetButton(horizontalInput))
+        {
+            animator.SetBool("ForwardA3", true);
+            Debug.Log("forwardAttack3");
+        }
         else if (Input.GetButtonDown(Attack3))
         {
             animator.SetBool("Attack3", true);
@@ -159,6 +165,15 @@ public class PlayerMovement : MonoBehaviour
         }
     }
     public void attack3()
+    {
+        Collider2D[] enemy = Physics2D.OverlapCircleAll(attackPoint3.transform.position, radius, enemies);
+
+        foreach (Collider2D enemyGameobject in enemy)
+        {
+            Debug.Log("HitEnemy");
+        }
+    }
+    public void forwardAttack3()
     {
         Collider2D[] enemy = Physics2D.OverlapCircleAll(attackPoint3.transform.position, radius, enemies);
 
@@ -201,6 +216,11 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("Attack3", false);
     }
     
+    public void endForwardAttack3()
+    {
+        animator.SetBool("ForwardA3", false);
+    }
+    
     public void endRunAttack3()
     {
         animator.SetBool("RunAttack3", false);
@@ -225,6 +245,7 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.DrawWireSphere(attackPoint1.transform.position, radius);
         Gizmos.DrawWireSphere(attackPoint2.transform.position, radius);
         Gizmos.DrawWireSphere(attackPoint3.transform.position, radius);
+        Gizmos.DrawWireSphere(forwardAttackPoint3.transform.position, radius);
         Gizmos.DrawWireSphere(runAttackPoint3.transform.position, radius);
         Gizmos.DrawWireSphere(dahAttackPoint2.transform.position, radius);
     }
