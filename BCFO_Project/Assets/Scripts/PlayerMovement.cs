@@ -40,6 +40,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public float radius;
     public LayerMask enemies;
 
+    [Header("AUDIO")]
+    public AudioClip electricAudio;
+    AudioSource audioPlay;
+
+    void Start()
+    {
+        audioPlay = GetComponent<AudioSource>();
+    }
+
     void Update()
     {
         HandleMovement();
@@ -236,7 +245,14 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("Can EWHF");
         if (Input.GetButton(Attack1))
         {
+            Debug.Log("EWHF");
             animator.SetBool("DAH", true);
+            audioPlay.PlayOneShot(electricAudio, 1.0f);
+        }
+        else
+        {
+            Debug.Log("DAHn't");
+            return;
         }
     }
 
