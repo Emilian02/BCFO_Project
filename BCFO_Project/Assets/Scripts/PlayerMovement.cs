@@ -193,15 +193,17 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("DownA3", true);
             Debug.Log("downA3");
         }
-        else if (Input.GetButton(Attack3) && Input.GetButton(shiftRun))
-        {
-            animator.SetBool("RunAttack3", true);
-            Debug.Log("runAttack3");
-        }
         else if (Input.GetButtonDown(Attack3))
         {
             animator.SetBool("Attack3", true);
             Debug.Log("attack3");
+        }
+
+        if (Input.GetButton(Attack3) && Input.GetButton(shiftRun))
+        {
+            animator.SetBool("RunAttack3", true);
+            animator.SetBool("ForwardA3", false);
+            Debug.Log("runAttack3");
         }
     }
 
