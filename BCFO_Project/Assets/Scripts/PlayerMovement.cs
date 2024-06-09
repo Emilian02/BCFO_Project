@@ -42,7 +42,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public GameObject dahAttackPoint2;
     [SerializeField] public GameObject downAttackPoint1;
     [SerializeField] public GameObject downAttackPoint2;
+    [SerializeField] public GameObject downAttackPoint3;
+    [SerializeField] public GameObject launchAttackPoint3;
     [SerializeField] public float radius;
+    [SerializeField] public float swordRadius;
     public LayerMask enemies;
 
     [Header("AUDIO")]
@@ -174,16 +177,26 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("Attack2", true);
             Debug.Log("attack2");
         }
-        
-        if (Input.GetButton(Attack3) && Input.GetButton(shiftRun))
+
+        if (Input.GetButtonDown(Attack3) && Input.GetButton(horizontalInput) && Input.GetButton(downInput))
         {
-            animator.SetBool("RunAttack3", true);
-            Debug.Log("runAttack3");
+            animator.SetBool("LAUNCH", true);
+            Debug.Log("LAUNCH");
         }
         else if (Input.GetButton(Attack3) && Input.GetButton(horizontalInput))
         {
             animator.SetBool("ForwardA3", true);
             Debug.Log("forwardAttack3");
+        }
+        else if (Input.GetButtonDown(Attack3) && Input.GetButton(downInput))
+        {
+            animator.SetBool("DownA3", true);
+            Debug.Log("downA3");
+        }
+        else if (Input.GetButton(Attack3) && Input.GetButton(shiftRun))
+        {
+            animator.SetBool("RunAttack3", true);
+            Debug.Log("runAttack3");
         }
         else if (Input.GetButtonDown(Attack3))
         {
@@ -221,7 +234,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void forwardAttack3()
     {
-        Collider2D[] enemy = Physics2D.OverlapCircleAll(forwardAttackPoint3.transform.position, radius, enemies);
+        Collider2D[] enemy = Physics2D.OverlapCircleAll(forwardAttackPoint3.transform.position, swordRadius, enemies);
 
         foreach (Collider2D enemyGameobject in enemy)
         {
@@ -255,6 +268,15 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("HitEnemy");
         }
     }
+    public void downAttack3()
+    {
+        Collider2D[] enemy = Physics2D.OverlapCircleAll(downAttackPoint3.transform.position, swordRadius, enemies);
+
+        foreach (Collider2D enemyGameobject in enemy)
+        {
+            Debug.Log("HitEnemy");
+        }
+    }
     public void runAttack3()
     {
         Collider2D[] enemy = Physics2D.OverlapCircleAll(runAttackPoint3.transform.position, radius, enemies);
@@ -276,6 +298,15 @@ public class PlayerMovement : MonoBehaviour
     public void dahAttack2()
     {
        Collider2D[] enemy = Physics2D.OverlapCircleAll(dahAttackPoint2.transform.position, radius, enemies);
+
+       foreach (Collider2D enemyGameobject in enemy)
+       {
+           Debug.Log("HitEnemy");
+       } 
+    }
+    public void launchAttack3()
+    {
+       Collider2D[] enemy = Physics2D.OverlapCircleAll(launchAttackPoint3.transform.position, swordRadius, enemies);
 
        foreach (Collider2D enemyGameobject in enemy)
        {
@@ -315,7 +346,10 @@ public class PlayerMovement : MonoBehaviour
     {
         animator.SetBool("DownA1", false);
     }
-    
+    public void endDownAttack3()
+    {
+        animator.SetBool("DownA3", false);
+    }
     public void endRunAttack3()
     {
         animator.SetBool("RunAttack3", false);
@@ -329,6 +363,11 @@ public class PlayerMovement : MonoBehaviour
     public void endDAHAttack1()
     {
         animator.SetBool("WHF", false);
+    }
+    public void endLAUNCHAttack3()
+    {
+        animator.SetBool("LAUNCH", false);
+        animator.SetBool("ForwardA3", false);
     }
 
     public void DAH()
@@ -359,6 +398,9 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.DrawWireSphere(dahAttackPoint1.transform.position, radius);
         Gizmos.DrawWireSphere(downAttackPoint2.transform.position, radius);
         Gizmos.DrawWireSphere(downAttackPoint1.transform.position, radius);
+        Gizmos.DrawWireSphere(launchAttackPoint3.transform.position, swordRadius);
+        Gizmos.DrawWireSphere(downAttackPoint3.transform.position, swordRadius);
+        Gizmos.DrawWireSphere(forwardAttackPoint3.transform.position, swordRadius);
     }
 
     private void FixedUpdate()
