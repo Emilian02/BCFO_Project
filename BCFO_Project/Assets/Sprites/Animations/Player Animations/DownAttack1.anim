@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CrouchWalk
+  m_Name: DownAttack1
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,22 +20,18 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: a63840c226cfe114ca193c5a1cd25348, type: 3}
-    - time: 0.14285715
-      value: {fileID: 21300000, guid: ee10e8f524a3bfc42907e63c4a02e082, type: 3}
-    - time: 0.2857143
-      value: {fileID: 21300000, guid: 95bb5f9bdae3d3248981c15dc353c75b, type: 3}
-    - time: 0.42857143
-      value: {fileID: 21300000, guid: c332addb16c63814cb765042484ac0b6, type: 3}
-    - time: 0.5714286
-      value: {fileID: 21300000, guid: 525e314188c28234a9eef0148182c775, type: 3}
-    - time: 0.71428573
-      value: {fileID: 21300000, guid: 63cfbb1db5296f84fab6b81844551a3f, type: 3}
+      value: {fileID: 21300000, guid: d15b9b3f60ca9c54292af4b98543dc84, type: 3}
+    - time: 0.11111111
+      value: {fileID: 21300000, guid: 9e8d8c76af7d72f469c20cf119711da7, type: 3}
+    - time: 0.22222222
+      value: {fileID: 21300000, guid: 2f8f2d4531128444db36cd731981df7a, type: 3}
+    - time: 0.33333334
+      value: {fileID: 21300000, guid: afc150470a0663c43a58637c213c3f11, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 7
+  m_SampleRate: 9
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -50,18 +46,16 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: a63840c226cfe114ca193c5a1cd25348, type: 3}
-    - {fileID: 21300000, guid: ee10e8f524a3bfc42907e63c4a02e082, type: 3}
-    - {fileID: 21300000, guid: 95bb5f9bdae3d3248981c15dc353c75b, type: 3}
-    - {fileID: 21300000, guid: c332addb16c63814cb765042484ac0b6, type: 3}
-    - {fileID: 21300000, guid: 525e314188c28234a9eef0148182c775, type: 3}
-    - {fileID: 21300000, guid: 63cfbb1db5296f84fab6b81844551a3f, type: 3}
+    - {fileID: 21300000, guid: d15b9b3f60ca9c54292af4b98543dc84, type: 3}
+    - {fileID: 21300000, guid: 9e8d8c76af7d72f469c20cf119711da7, type: 3}
+    - {fileID: 21300000, guid: 2f8f2d4531128444db36cd731981df7a, type: 3}
+    - {fileID: 21300000, guid: afc150470a0663c43a58637c213c3f11, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.85714287
+    m_StopTime: 0.44444445
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -81,8 +75,15 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0
-    functionName: DAH
+  - time: 0.11111111
+    functionName: downAttack1
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.33333334
+    functionName: endDownAttack1
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
