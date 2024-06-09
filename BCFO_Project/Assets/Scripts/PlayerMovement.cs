@@ -44,6 +44,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public GameObject downAttackPoint2;
     [SerializeField] public GameObject downAttackPoint3;
     [SerializeField] public GameObject launchAttackPoint3;
+    [SerializeField] public GameObject jumpAttackPoint1;
+    [SerializeField] public GameObject jumpAttackPoint2;
+    [SerializeField] public GameObject jumpAttackPoint3;
     [SerializeField] public float radius;
     [SerializeField] public float swordRadius;
     public LayerMask enemies;
@@ -54,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool slide = false;
     private bool canAttack = true;
+    private bool canAirAttack = true;
 
     void Start()
     {
@@ -144,6 +148,30 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown(horizontalInput))
         {
             Debug.Log("forward");
+        }
+
+        if (Input.GetButtonDown(Attack3) && canJump == false && canAirAttack == true)
+        {
+            canAirAttack = false;
+            animator.SetBool("JumpA3", true);
+        }
+        if (Input.GetButtonDown(Attack1) && canJump == false && canAirAttack == true)
+        {
+            canAirAttack = false;
+            animator.SetBool("JumpA2", true);
+        }
+        if (Input.GetButtonDown(Attack2) && canJump == false && canAirAttack == true)
+        {
+            canAirAttack = false;
+            animator.SetBool("JumpA1", true);
+        }
+
+        if (canJump == true)
+        {
+            animator.SetBool("JumpA1", false);
+            animator.SetBool("JumpA2", false);
+            animator.SetBool("JumpA3", false);
+            canAirAttack = true;
         }
 
         if (Input.GetButtonDown(Attack1) && (Input.GetButton(horizontalInput) && Input.GetButton(downInput)) && canAttack == true && canJump == true)
@@ -336,6 +364,33 @@ public class PlayerMovement : MonoBehaviour
            Debug.Log("HitEnemy");
        } 
     }
+    public void jumpAttack3()
+    {
+       Collider2D[] enemy = Physics2D.OverlapCircleAll(jumpAttackPoint3.transform.position, radius, enemies);
+
+       foreach (Collider2D enemyGameobject in enemy)
+       {
+           Debug.Log("HitEnemy");
+       } 
+    }
+    public void jumpAttack2()
+    {
+       Collider2D[] enemy = Physics2D.OverlapCircleAll(jumpAttackPoint2.transform.position, radius, enemies);
+
+       foreach (Collider2D enemyGameobject in enemy)
+       {
+           Debug.Log("HitEnemy");
+       } 
+    }
+    public void jumpAttack1()
+    {
+       Collider2D[] enemy = Physics2D.OverlapCircleAll(jumpAttackPoint1.transform.position, swordRadius, enemies);
+
+       foreach (Collider2D enemyGameobject in enemy)
+       {
+           Debug.Log("HitEnemy");
+       } 
+    }
 
     public void endAttack1()
     {
@@ -405,6 +460,21 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("ForwardA3", false);
         canAttack = true;
     }
+    public void endjumpAttack1()
+    {
+        animator.SetBool("JumpA1", false);
+        canAirAttack = true;
+    }
+    public void endjumpAttack2()
+    {
+        animator.SetBool("JumpA2", false);
+        canAirAttack = true;
+    }
+    public void endjumpAttack3()
+    {
+        animator.SetBool("JumpA3", false);
+        canAirAttack = true;
+    }
 
     public void DAH()
     {
@@ -438,6 +508,9 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.DrawWireSphere(launchAttackPoint3.transform.position, swordRadius);
         Gizmos.DrawWireSphere(downAttackPoint3.transform.position, swordRadius);
         Gizmos.DrawWireSphere(forwardAttackPoint3.transform.position, swordRadius);
+        Gizmos.DrawWireSphere(jumpAttackPoint3.transform.position, swordRadius);
+        Gizmos.DrawWireSphere(jumpAttackPoint2.transform.position, radius);
+        Gizmos.DrawWireSphere(jumpAttackPoint1.transform.position, radius);
     }
 
     private void FixedUpdate()
