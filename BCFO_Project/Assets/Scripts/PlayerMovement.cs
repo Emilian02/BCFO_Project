@@ -111,6 +111,22 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("running");
         }
 
+        if (Input.GetButton(horizontalInput) && Input.GetButtonDown(Dodge) && canJump == true && canAttack == true)
+        {
+            slide = true;
+            animator.SetBool("DODGE", true);
+            Debug.Log("DODGE");
+            canAttack = false;
+            if (spriteRenderer.flipX == false)
+            {
+                rb.AddForce(transform.right * slideSpeed, ForceMode2D.Impulse);
+            }
+            else if (spriteRenderer.flipX == true)
+            {
+                rb.AddForce(transform.right * -slideSpeed, ForceMode2D.Impulse);
+            }
+        }
+
         if (Input.GetButtonUp(shiftRun) || Input.GetButtonUp(horizontalInput))
         {
             moveSpeed = resetSpeed;
@@ -474,6 +490,12 @@ public class PlayerMovement : MonoBehaviour
     {
         animator.SetBool("JumpA3", false);
         canAirAttack = true;
+    }
+    public void endDodge()
+    {
+        animator.SetBool("DODGE", false);
+        slide = false;
+        canAttack = true;
     }
 
     public void DAH()
