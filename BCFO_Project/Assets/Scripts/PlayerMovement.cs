@@ -69,14 +69,14 @@ public class PlayerMovement : MonoBehaviour
     private void HandleMovement()
     {
 
-        if (Input.GetButtonDown(verticalInput) && canJump)
+        if (Input.GetButtonDown(verticalInput) && canJump && canAttack)
         {
             rb.AddForce(new Vector2(0, jumpForce));
             canJump = false;
             animator.SetBool("HasJumped", true);
         }
 
-        if (Input.GetButtonDown(downInput) || (Input.GetButton(downInput) && Input.GetButton(horizontalInput)))
+        if ((Input.GetButtonDown(downInput) || (Input.GetButton(downInput) && Input.GetButton(horizontalInput))) && canJump == true)
         {
             moveSpeed = crouchSpeed;
             animator.SetBool("IsCrouching", true);
@@ -100,7 +100,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetFloat("speed", Mathf.Abs(horizontalMovement));
         }
 
-        if (Input.GetButton(horizontalInput) && Input.GetButtonDown(shiftRun))
+        if (Input.GetButton(horizontalInput) && Input.GetButtonDown(shiftRun) && canJump == true)
         {
             moveSpeed = runSpeed;
             animator.SetBool("IsRunning", true);
@@ -146,13 +146,13 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("forward");
         }
 
-        if (Input.GetButtonDown(Attack1) && (Input.GetButton(horizontalInput) && Input.GetButton(downInput)) && canAttack == true)
+        if (Input.GetButtonDown(Attack1) && (Input.GetButton(horizontalInput) && Input.GetButton(downInput)) && canAttack == true && canJump == true)
         {
             animator.SetBool("WHF", true);
             Debug.Log("WHF");
             canAttack = false;
         }
-        else if (Input.GetButtonDown(Attack1) && Input.GetButton(downInput) && canAttack == true)
+        else if (Input.GetButtonDown(Attack1) && Input.GetButton(downInput) && canAttack == true && canJump == true)
         {
             slide = true;
             animator.SetBool("DownA2", true);
@@ -167,33 +167,33 @@ public class PlayerMovement : MonoBehaviour
             }
             Debug.Log("Slide");
         }
-        else if (Input.GetButtonDown(Attack1) && canAttack == true)
+        else if (Input.GetButtonDown(Attack1) && canAttack == true && canJump == true)
         {
             animator.SetBool("Attack1", true);
             Debug.Log("attack1");
             canAttack = false;
         }
 
-        if(Input.GetButtonDown(Attack2) && Input.GetButton(downInput) && canAttack == true)
+        if (Input.GetButtonDown(Attack2) && Input.GetButton(downInput) && canAttack == true && canJump == true)
         {
             animator.SetBool("DownA1", true);
             Debug.Log("downA1");
             canAttack = false;
         }
-        else if(Input.GetButtonDown(Attack2) && Input.GetButton(horizontalInput) && canAttack == true)
+        else if(Input.GetButtonDown(Attack2) && Input.GetButton(horizontalInput) && canAttack == true && canJump == true)
         {
             animator.SetBool("ForwardA1", true);
             Debug.Log("forwardA1");
             canAttack = false;
         }
-        else if (Input.GetButtonDown(Attack2) && canAttack == true)
+        else if (Input.GetButtonDown(Attack2) && canAttack == true && canJump == true)
         {
             animator.SetBool("Attack2", true);
             Debug.Log("attack2");
             canAttack = false;
         }
 
-        if (Input.GetButton(Attack3) && Input.GetButton(shiftRun) && canAttack == true)
+        if (Input.GetButton(Attack3) && Input.GetButton(shiftRun) && canAttack == true && canJump == true)
         {
             slide = true;
             animator.SetBool("RunAttack3", true);
@@ -202,25 +202,25 @@ public class PlayerMovement : MonoBehaviour
             canAttack = false;
         }
 
-        if (Input.GetButtonDown(Attack3) && Input.GetButton(horizontalInput) && Input.GetButton(downInput) && canAttack == true)
+        if (Input.GetButtonDown(Attack3) && Input.GetButton(horizontalInput) && Input.GetButton(downInput) && canAttack == true && canJump == true)
         {
             animator.SetBool("LAUNCH", true);
             Debug.Log("LAUNCH");
             canAttack = false;
         }
-        else if (Input.GetButton(Attack3) && Input.GetButton(horizontalInput) && canAttack == true)
+        else if (Input.GetButton(Attack3) && Input.GetButton(horizontalInput) && canAttack == true && canJump == true)
         {
             animator.SetBool("ForwardA3", true);
             Debug.Log("forwardAttack3");
             canAttack = false;
         }
-        else if (Input.GetButtonDown(Attack3) && Input.GetButton(downInput) && canAttack == true)
+        else if (Input.GetButtonDown(Attack3) && Input.GetButton(downInput) && canAttack == true && canJump == true)
         {
             animator.SetBool("DownA3", true);
             Debug.Log("downA3");
             canAttack = false;
         }
-        else if (Input.GetButtonDown(Attack3) && canAttack == true)
+        else if (Input.GetButtonDown(Attack3) && canAttack == true && canJump == true)
         {
             animator.SetBool("Attack3", true);
             Debug.Log("attack3");

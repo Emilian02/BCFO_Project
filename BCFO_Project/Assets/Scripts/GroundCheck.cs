@@ -8,7 +8,7 @@ public class GroundCheck : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Platform") // || collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Platform")
         {
             playerMovement.LandedOnPlatform();
         }
@@ -16,7 +16,7 @@ public class GroundCheck : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Platform")//|| collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Platform")
         {
             playerMovement.FellOffPlatform();
         }
