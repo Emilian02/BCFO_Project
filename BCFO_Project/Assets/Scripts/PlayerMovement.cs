@@ -53,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
     AudioSource audioPlay;
 
     private bool slide = false;
+    private bool canAttack = true;
 
     void Start()
     {
@@ -137,15 +138,17 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("forward");
         }
 
-        if (Input.GetButtonDown(Attack1) && (Input.GetButton(horizontalInput) && Input.GetButton(downInput)))
+        if (Input.GetButtonDown(Attack1) && (Input.GetButton(horizontalInput) && Input.GetButton(downInput)) && canAttack == true)
         {
             animator.SetBool("WHF", true);
             Debug.Log("WHF");
+            canAttack = false;
         }
-        else if (Input.GetButtonDown(Attack1) && Input.GetButton(downInput))
+        else if (Input.GetButtonDown(Attack1) && Input.GetButton(downInput) && canAttack == true)
         {
             slide = true;
             animator.SetBool("DownA2", true);
+            canAttack = false;
             if (spriteRenderer.flipX == false)
             {
                 rb.AddForce(transform.right * slideSpeed, ForceMode2D.Impulse);
@@ -156,54 +159,63 @@ public class PlayerMovement : MonoBehaviour
             }
             Debug.Log("Slide");
         }
-        else if (Input.GetButtonDown(Attack1))
+        else if (Input.GetButtonDown(Attack1) && canAttack == true)
         {
             animator.SetBool("Attack1", true);
             Debug.Log("attack1");
+            canAttack = false;
         }
 
-        if(Input.GetButtonDown(Attack2) && Input.GetButton(downInput))
+        if(Input.GetButtonDown(Attack2) && Input.GetButton(downInput) && canAttack == true)
         {
             animator.SetBool("DownA1", true);
             Debug.Log("downA1");
+            canAttack = false;
         }
-        else if(Input.GetButtonDown(Attack2) && Input.GetButton(horizontalInput))
+        else if(Input.GetButtonDown(Attack2) && Input.GetButton(horizontalInput) && canAttack == true)
         {
             animator.SetBool("ForwardA1", true);
             Debug.Log("forwardA1");
+            canAttack = false;
         }
-        else if (Input.GetButtonDown(Attack2))
+        else if (Input.GetButtonDown(Attack2) && canAttack == true)
         {
             animator.SetBool("Attack2", true);
             Debug.Log("attack2");
+            canAttack = false;
         }
 
-        if (Input.GetButtonDown(Attack3) && Input.GetButton(horizontalInput) && Input.GetButton(downInput))
-        {
-            animator.SetBool("LAUNCH", true);
-            Debug.Log("LAUNCH");
-        }
-        else if (Input.GetButton(Attack3) && Input.GetButton(horizontalInput))
-        {
-            animator.SetBool("ForwardA3", true);
-            Debug.Log("forwardAttack3");
-        }
-        else if (Input.GetButtonDown(Attack3) && Input.GetButton(downInput))
-        {
-            animator.SetBool("DownA3", true);
-            Debug.Log("downA3");
-        }
-        else if (Input.GetButtonDown(Attack3))
-        {
-            animator.SetBool("Attack3", true);
-            Debug.Log("attack3");
-        }
-
-        if (Input.GetButton(Attack3) && Input.GetButton(shiftRun))
+        if (Input.GetButton(Attack3) && Input.GetButton(shiftRun) && canAttack == true)
         {
             animator.SetBool("RunAttack3", true);
             animator.SetBool("ForwardA3", false);
             Debug.Log("runAttack3");
+            canAttack = false;
+        }
+
+        if (Input.GetButtonDown(Attack3) && Input.GetButton(horizontalInput) && Input.GetButton(downInput) && canAttack == true)
+        {
+            animator.SetBool("LAUNCH", true);
+            Debug.Log("LAUNCH");
+            canAttack = false;
+        }
+        else if (Input.GetButton(Attack3) && Input.GetButton(horizontalInput) && canAttack == true)
+        {
+            animator.SetBool("ForwardA3", true);
+            Debug.Log("forwardAttack3");
+            canAttack = false;
+        }
+        else if (Input.GetButtonDown(Attack3) && Input.GetButton(downInput) && canAttack == true)
+        {
+            animator.SetBool("DownA3", true);
+            Debug.Log("downA3");
+            canAttack = false;
+        }
+        else if (Input.GetButtonDown(Attack3) && canAttack == true)
+        {
+            animator.SetBool("Attack3", true);
+            Debug.Log("attack3");
+            canAttack = false;
         }
     }
 
@@ -319,57 +331,69 @@ public class PlayerMovement : MonoBehaviour
     public void endAttack1()
     {
         animator.SetBool("Attack1", false);
+        canAttack = true;
     }
     
     public void endAttack2()
     {
         animator.SetBool("Attack2", false);
+        canAttack = true;
     }
 
     public void endAttack3()
     {
         animator.SetBool("Attack3", false);
+        canAttack = true;
     }
     
     public void endForwardAttack3()
     {
         animator.SetBool("ForwardA3", false);
+        canAttack = true;
     }
     public void endForwardAttack1()
     {
         animator.SetBool("ForwardA1", false);
+        canAttack = true;
     }
     public void endDownAttack2()
     {
         slide = false;
         animator.SetBool("DownA2", false);
+        canAttack = true;
     }
     public void endDownAttack1()
     {
         animator.SetBool("DownA1", false);
+        canAttack = true;
     }
     public void endDownAttack3()
     {
         animator.SetBool("DownA3", false);
+        canAttack = true;
     }
     public void endRunAttack3()
     {
         animator.SetBool("RunAttack3", false);
+        canAttack = true;
     }
     public void endDAHAttack2()
     {
         animator.SetBool("DAH", false);
         animator.SetBool("Attack1", false);
         animator.SetBool("WHF", false);
+        canAttack = true;
     }
     public void endDAHAttack1()
     {
         animator.SetBool("WHF", false);
+        canAttack = true;
     }
     public void endLAUNCHAttack3()
     {
         animator.SetBool("LAUNCH", false);
         animator.SetBool("ForwardA3", false);
+        canAttack = true;
     }
 
     public void DAH()
@@ -380,11 +404,7 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("EWHF");
             animator.SetBool("DAH", true);
             audioPlay.PlayOneShot(electricAudio, 1.0f);
-        }
-        else
-        {
-            Debug.Log("DAHn't");
-            return;
+            canAttack = false;
         }
     }
 
