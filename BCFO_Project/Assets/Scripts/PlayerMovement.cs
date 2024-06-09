@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveSpeed = 1.0f;
     [SerializeField] private float resetSpeed = 1.0f;
     [SerializeField] private float runSpeed = 1.0f;
+    [SerializeField] private float slideSpeed = 1.0f;
     [SerializeField] private float crouchSpeed = 1.0f;
     [SerializeField] private float jumpForce = 600.0f;
     [SerializeField] private Animator animator;
@@ -36,13 +37,17 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public GameObject attackPoint3;
     [SerializeField] public GameObject forwardAttackPoint3;
     [SerializeField] public GameObject runAttackPoint3;
+    [SerializeField] public GameObject dahAttackPoint1;
     [SerializeField] public GameObject dahAttackPoint2;
+    [SerializeField] public GameObject downAttackPoint2;
     [SerializeField] public float radius;
     public LayerMask enemies;
 
     [Header("AUDIO")]
     public AudioClip electricAudio;
     AudioSource audioPlay;
+
+    private bool slide = false;
 
     void Start()
     {
@@ -126,7 +131,26 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("forward");
         }
 
-        if (Input.GetButtonDown(Attack1))
+        if (Input.GetButtonDown(Attack1) && (Input.GetButton(horizontalInput) && Input.GetButton(downInput)))
+        {
+            animator.SetBool("WHF", true);
+            Debug.Log("WHF");
+        }
+        else if (Input.GetButtonDown(Attack1) && Input.GetButton(downInput))
+        {
+            slide = true;
+            animator.SetBool("DownA2", true);
+            if (spriteRenderer.flipX == false)
+            {
+                rb.AddForce(transform.right * slideSpeed, ForceMode2D.Impulse);
+            }
+            else if (spriteRenderer.flipX == true)
+            {
+                rb.AddForce(transform.right * -slideSpeed, ForceMode2D.Impulse);
+            }
+            Debug.Log("Slide");
+        }
+        else if (Input.GetButtonDown(Attack1))
         {
             animator.SetBool("Attack1", true);
             Debug.Log("attack1");
@@ -184,7 +208,16 @@ public class PlayerMovement : MonoBehaviour
     }
     public void forwardAttack3()
     {
-        Collider2D[] enemy = Physics2D.OverlapCircleAll(attackPoint3.transform.position, radius, enemies);
+        Collider2D[] enemy = Physics2D.OverlapCircleAll(forwardAttackPoint3.transform.position, radius, enemies);
+
+        foreach (Collider2D enemyGameobject in enemy)
+        {
+            Debug.Log("HitEnemy");
+        }
+    }
+    public void downAttack2()
+    {
+        Collider2D[] enemy = Physics2D.OverlapCircleAll(downAttackPoint2.transform.position, radius, enemies);
 
         foreach (Collider2D enemyGameobject in enemy)
         {
@@ -193,7 +226,16 @@ public class PlayerMovement : MonoBehaviour
     }
     public void runAttack3()
     {
-        Collider2D[] enemy = Physics2D.OverlapCircleAll(attackPoint3.transform.position, radius, enemies);
+        Collider2D[] enemy = Physics2D.OverlapCircleAll(runAttackPoint3.transform.position, radius, enemies);
+
+        foreach (Collider2D enemyGameobject in enemy)
+        {
+            Debug.Log("HitEnemy");
+        }
+    }
+    public void dahAttack1()
+    {
+        Collider2D[] enemy = Physics2D.OverlapCircleAll(dahAttackPoint1.transform.position, radius, enemies);
 
         foreach (Collider2D enemyGameobject in enemy)
         {
@@ -202,7 +244,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void dahAttack2()
     {
-       Collider2D[] enemy = Physics2D.OverlapCircleAll(attackPoint3.transform.position, radius, enemies);
+       Collider2D[] enemy = Physics2D.OverlapCircleAll(dahAttackPoint2.transform.position, radius, enemies);
 
        foreach (Collider2D enemyGameobject in enemy)
        {
@@ -229,6 +271,11 @@ public class PlayerMovement : MonoBehaviour
     {
         animator.SetBool("ForwardA3", false);
     }
+    public void endDownAttack2()
+    {
+        slide = false;
+        animator.SetBool("DownA2", false);
+    }
     
     public void endRunAttack3()
     {
@@ -238,6 +285,10 @@ public class PlayerMovement : MonoBehaviour
     {
         animator.SetBool("DAH", false);
         animator.SetBool("Attack1", false);
+    }
+    public void endDAHAttack1()
+    {
+        animator.SetBool("WHF", false);
     }
 
     public void DAH()
@@ -264,12 +315,16 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.DrawWireSphere(forwardAttackPoint3.transform.position, radius);
         Gizmos.DrawWireSphere(runAttackPoint3.transform.position, radius);
         Gizmos.DrawWireSphere(dahAttackPoint2.transform.position, radius);
+        Gizmos.DrawWireSphere(dahAttackPoint1.transform.position, radius);
+        Gizmos.DrawWireSphere(downAttackPoint2.transform.position, radius);
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(horizontalMovement, rb.velocity.y);
-        
+        if (slide == false)
+        {
+            rb.velocity = new Vector2(horizontalMovement, rb.velocity.y);
+        }
     }
 
     public void LandedOnPlatform()
