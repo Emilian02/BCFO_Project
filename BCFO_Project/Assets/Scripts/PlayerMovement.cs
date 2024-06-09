@@ -89,8 +89,16 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("IsRunning", false);
         }
 
-        horizontalMovement = Input.GetAxisRaw(horizontalInput) * moveSpeed;
-        animator.SetFloat("speed", Mathf.Abs(horizontalMovement));
+        if (canAttack == true)
+        {
+            horizontalMovement = Input.GetAxisRaw(horizontalInput) * moveSpeed;
+            animator.SetFloat("speed", Mathf.Abs(horizontalMovement));
+        }
+        else if (canAttack == false)
+        {
+            horizontalMovement = Input.GetAxisRaw(horizontalInput) * 0;
+            animator.SetFloat("speed", Mathf.Abs(horizontalMovement));
+        }
 
         if (Input.GetButton(horizontalInput) && Input.GetButtonDown(shiftRun))
         {
@@ -187,6 +195,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButton(Attack3) && Input.GetButton(shiftRun) && canAttack == true)
         {
+            slide = true;
             animator.SetBool("RunAttack3", true);
             animator.SetBool("ForwardA3", false);
             Debug.Log("runAttack3");
@@ -374,6 +383,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void endRunAttack3()
     {
+        slide = false;
         animator.SetBool("RunAttack3", false);
         canAttack = true;
     }
@@ -402,9 +412,14 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButton(Attack1))
         {
             Debug.Log("EWHF");
+            canAttack = false;
             animator.SetBool("DAH", true);
             audioPlay.PlayOneShot(electricAudio, 1.0f);
-            canAttack = false;
+        }
+        else
+        {
+            canAttack = true;
+            animator.SetBool("DAH", false);
         }
     }
 
