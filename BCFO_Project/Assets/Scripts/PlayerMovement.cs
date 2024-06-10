@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float resetSpeed = 1.0f;
     [SerializeField] private float runSpeed = 1.0f;
     [SerializeField] private float slideSpeed = 1.0f;
+    [SerializeField] private float rollSpeed = 1.0f;
     [SerializeField] private float crouchSpeed = 1.0f;
     [SerializeField] private float jumpForce = 600.0f;
     [SerializeField] private Animator animator;
@@ -119,11 +120,11 @@ public class PlayerMovement : MonoBehaviour
             canAttack = false;
             if (spriteRenderer.flipX == false)
             {
-                rb.AddForce(transform.right * slideSpeed, ForceMode2D.Impulse);
+                rb.AddForce(transform.right * rollSpeed, ForceMode2D.Impulse);
             }
             else if (spriteRenderer.flipX == true)
             {
-                rb.AddForce(transform.right * -slideSpeed, ForceMode2D.Impulse);
+                rb.AddForce(transform.right * -rollSpeed, ForceMode2D.Impulse);
             }
         }
 
@@ -252,7 +253,7 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("LAUNCH");
             canAttack = false;
         }
-        else if (Input.GetButton(Attack3) && Input.GetButton(horizontalInput) && canAttack == true && canJump == true)
+        else if (Input.GetButtonDown(Attack3) && Input.GetButton(horizontalInput) && canAttack == true && canJump == true)
         {
             animator.SetBool("ForwardA3", true);
             Debug.Log("forwardAttack3");
@@ -501,7 +502,7 @@ public class PlayerMovement : MonoBehaviour
     public void DAH()
     {
         Debug.Log("Can EWHF");
-        if (Input.GetButton(Attack1))
+        if (Input.GetButtonDown(Attack1))
         {
             Debug.Log("EWHF");
             canAttack = false;

@@ -475,6 +475,7 @@ MonoBehaviour:
   resetSpeed: 4
   runSpeed: 9
   slideSpeed: 7
+  rollSpeed: 4
   crouchSpeed: 2
   jumpForce: 320
   animator: {fileID: 311202881}
