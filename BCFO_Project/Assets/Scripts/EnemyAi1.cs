@@ -4,6 +4,7 @@ using UnityEngine;
 using Pathfinding;
 using TMPro;
 using Pathfinding.Util;
+using Unity.VisualScripting;
 
 public class EnemyAi1 : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class EnemyAi1 : MonoBehaviour
     [SerializeField] private bool followEnable = true;
     [SerializeField] private bool jumpEnable = true;
     [SerializeField] private bool directionLookEnable = true;
+    [SerializeField] private Animator animator;
 
 
     private Path path;
@@ -30,6 +32,8 @@ public class EnemyAi1 : MonoBehaviour
     bool isGrounded = false;
     Seeker seeker;
     Rigidbody2D rb;
+
+
 
     private void Start()
     {
@@ -63,7 +67,7 @@ public class EnemyAi1 : MonoBehaviour
         }
 
         //Reached end of path
-        if(currentWaypoint >= path.vectorPath.Count)
+        if (currentWaypoint >= path.vectorPath.Count)
         {
             return;
         }
@@ -77,9 +81,9 @@ public class EnemyAi1 : MonoBehaviour
         Vector2 force = direction * speed * Time.deltaTime;
 
         //Jump
-        if(jumpEnable && isGrounded)
+        if (jumpEnable && isGrounded)
         {
-            if(direction.y > jumpNodeHeightRequirement)
+            if (direction.y > jumpNodeHeightRequirement)
             {
                 rb.AddForce(Vector2.up * speed * jumpModifier);
             }
@@ -87,16 +91,25 @@ public class EnemyAi1 : MonoBehaviour
 
         //Movement
         rb.AddForce(force);
+        if (rb.velocity.magnitude != 0)
+        {
+            Walking();
+        }
+        else
+        {
+            Idle();
+        }
+
 
         //Next Waypoint
         float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
-        if(distance < nextWaypointDistance)
+        if (distance < nextWaypointDistance)
         {
             currentWaypoint++;
         }
 
         //Direction Graphics Handling
-        if(directionLookEnable)
+        if (directionLookEnable)
         {
             if (rb.velocity.x < 0.05f)
             {
@@ -116,10 +129,20 @@ public class EnemyAi1 : MonoBehaviour
 
     private void OnPathComplete(Path p)
     {
-        if(!p.error)
+        if (!p.error)
         {
             path = p;
             currentWaypoint = 0;
         }
     }
+    private void Idle()
+    {
+        animator.SetBool("isWalking", false);
+    }
+
+    private void Walking()
+    {
+        animator.SetBool("isWalking", true);
+    }
+
 }
