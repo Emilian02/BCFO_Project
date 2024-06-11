@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 using TMPro;
+using Pathfinding.Util;
 
 public class EnemyAi1 : MonoBehaviour
 {
@@ -10,18 +11,19 @@ public class EnemyAi1 : MonoBehaviour
     [SerializeField] private Transform target;
     [SerializeField] private float activeDistance = 50f;
     [SerializeField] private float pathUpdateSeconds = 0.5f;
+    [SerializeField] private LayerMask layerMask;
 
     [Header("Physics")]
     [SerializeField] private float speed = 200f;
     [SerializeField] private float nextWaypointDistance = 3f;
     [SerializeField] private float jumpNodeHeightRequirement = 0.8f;
     [SerializeField] private float jumpModifier = 0.3f;
-    [SerializeField] private float jumpCheckOffSet = 0.1f;
 
     [Header("Custom Behavior")]
     [SerializeField] private bool followEnable = true;
     [SerializeField] private bool jumpEnable = true;
     [SerializeField] private bool directionLookEnable = true;
+
 
     private Path path;
     private int currentWaypoint = 0;
@@ -67,7 +69,8 @@ public class EnemyAi1 : MonoBehaviour
         }
 
         //See if colliding with anything
-        isGrounded = Physics2D.Raycast(transform.position, -Vector3.up, GetComponent<Collider2D>().bounds.extents.y + jumpCheckOffSet);
+        isGrounded = Physics2D.Raycast(transform.position, Vector3.down, 1.2f, layerMask);
+        Debug.DrawRay(transform.position, Vector3.down * 1.2f, Color.red);
 
         //Direction calculation
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
@@ -97,11 +100,11 @@ public class EnemyAi1 : MonoBehaviour
         {
             if (rb.velocity.x < 0.05f)
             {
-                transform.eulerAngles = new Vector2(transform.eulerAngles.x, 180);
+                transform.eulerAngles = new Vector2(transform.eulerAngles.x, 0);
             }
             else if (rb.velocity.x > -0.05f)
             {
-                transform.eulerAngles = new Vector2(transform.eulerAngles.x, 0);
+                transform.eulerAngles = new Vector2(transform.eulerAngles.x, 180);
             }
         }
     }
