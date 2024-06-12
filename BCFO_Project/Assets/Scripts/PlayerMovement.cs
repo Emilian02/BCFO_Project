@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpForce = 600.0f;
     [SerializeField] private Animator animator;
 
-    [Header("PLAYER Mechanics")]
+    [Header("PLAYER CONTROLS")]
     [SerializeField] private string horizontalInput;
     [SerializeField] private string verticalInput;
     [SerializeField] private string downInput;
@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("DRAGABLE OBJECTS")]
     [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private Rigidbody2D rbEnemy;
     [SerializeField] private SpriteRenderer spriteRenderer;
 
     private bool canJump = false;
@@ -54,27 +55,47 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("AUDIO")]
     public AudioClip electricAudio;
+    public AudioClip stage0Audio;
     AudioSource audioPlay;
+    AudioSource musicPlay;
 
     private bool slide = false;
     private bool canAttack = true;
     private bool canAirAttack = true;
+    private bool isCrouching = false;
+    private bool isRunning = false;
+    public static bool isBossFight = false;
 
     void Start()
     {
         audioPlay = GetComponent<AudioSource>();
+        musicPlay = GetComponent<AudioSource>();
+        musicPlay.PlayOneShot(stage0Audio, 0.1f);
+        Physics2D.IgnoreLayerCollision(7, 3);
     }
-
+    void StopMusic()
+    {
+        musicPlay.Stop();
+    }
     void Update()
     {
-        HandleMovement();
-        HandleInputs();
+        if (!startCutscene.isCutsceneOn)
+        {
+            HandleMovement();
+            HandleInputs();
+        }
+        else if (startCutscene.isCutsceneOn || isBossFight == true)
+        {
+            StopMusic();
+            animator.SetBool("IsRunning", true);
+            animator.SetBool("IsCrouching", false);
+        }
     }
 
     private void HandleMovement()
     {
 
-        if (Input.GetButtonDown(verticalInput) && canJump && canAttack)
+        if (Input.GetButtonDown(verticalInput) && canJump && canAttack && isCrouching == false)
         {
             rb.AddForce(new Vector2(0, jumpForce));
             canJump = false;
@@ -84,12 +105,15 @@ public class PlayerMovement : MonoBehaviour
         if ((Input.GetButtonDown(downInput) || (Input.GetButton(downInput) && Input.GetButton(horizontalInput))) && canJump == true)
         {
             moveSpeed = crouchSpeed;
+            isCrouching = true;
+            isRunning = false;
             animator.SetBool("IsCrouching", true);
         }
         
         if (Input.GetButtonUp(downInput))
         {
             moveSpeed = resetSpeed;
+            isCrouching = false;
             animator.SetBool("IsCrouching", false);
             animator.SetBool("IsRunning", false);
         }
@@ -108,6 +132,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButton(horizontalInput) && Input.GetButtonDown(shiftRun) && canJump == true)
         {
             moveSpeed = runSpeed;
+            isRunning = true;
             animator.SetBool("IsRunning", true);
             Debug.Log("running");
         }
@@ -118,30 +143,32 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("DODGE", true);
             Debug.Log("DODGE");
             canAttack = false;
-            if (spriteRenderer.flipX == false)
-            {
-                rb.AddForce(transform.right * rollSpeed, ForceMode2D.Impulse);
-            }
-            else if (spriteRenderer.flipX == true)
-            {
-                rb.AddForce(transform.right * -rollSpeed, ForceMode2D.Impulse);
-            }
+            rb.AddForce(transform.right * rollSpeed, ForceMode2D.Impulse);
         }
 
         if (Input.GetButtonUp(shiftRun) || Input.GetButtonUp(horizontalInput))
         {
             moveSpeed = resetSpeed;
             animator.SetBool("IsRunning", false);
+            isRunning = false;
             //animator.SetBool("RunAttack3", false);
         }
 
+        //if (horizontalMovement < 0)
+        //{
+        //    spriteRenderer.flipX = true;
+        //}
+        //else if (horizontalMovement > 0)
+        //{
+        //    spriteRenderer.flipX = false;
+        //}
         if (horizontalMovement < 0)
         {
-            spriteRenderer.flipX = true;
+            transform.rotation = Quaternion.Euler(0f, 180f, 0f);
         }
         else if (horizontalMovement > 0)
         {
-            spriteRenderer.flipX = false;
+            transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         }
     }
 
@@ -193,6 +220,13 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown(Attack1) && (Input.GetButton(horizontalInput) && Input.GetButton(downInput)) && canAttack == true && canJump == true)
         {
+            animator.SetBool("DAH", true);
+            Debug.Log("DAH");
+            audioPlay.PlayOneShot(electricAudio, 0.2f);
+            canAttack = false;
+        }
+        else if (Input.GetButtonDown(Attack1) && (Input.GetButton(horizontalInput) && Input.GetButton(downInput)) && canAttack == true && canJump == true)
+        {
             animator.SetBool("WHF", true);
             Debug.Log("WHF");
             canAttack = false;
@@ -202,14 +236,7 @@ public class PlayerMovement : MonoBehaviour
             slide = true;
             animator.SetBool("DownA2", true);
             canAttack = false;
-            if (spriteRenderer.flipX == false)
-            {
-                rb.AddForce(transform.right * slideSpeed, ForceMode2D.Impulse);
-            }
-            else if (spriteRenderer.flipX == true)
-            {
-                rb.AddForce(transform.right * -slideSpeed, ForceMode2D.Impulse);
-            }
+            rb.AddForce(transform.right * slideSpeed, ForceMode2D.Impulse);
             Debug.Log("Slide");
         }
         else if (Input.GetButtonDown(Attack1) && canAttack == true && canJump == true)
@@ -238,7 +265,7 @@ public class PlayerMovement : MonoBehaviour
             canAttack = false;
         }
 
-        if (Input.GetButton(Attack3) && Input.GetButton(shiftRun) && canAttack == true && canJump == true)
+        if (Input.GetButtonDown(Attack3) && Input.GetButton(shiftRun) && canAttack == true && canJump == true && isRunning == true)
         {
             slide = true;
             animator.SetBool("RunAttack3", true);
@@ -279,7 +306,10 @@ public class PlayerMovement : MonoBehaviour
 
         foreach (Collider2D enemyGameobject in enemy)
         {
-            Debug.Log("HitEnemy");
+            enemyGameobject.GetComponent<EnemyHealth>().health -= 4;
+
+            rbEnemy.AddForce(transform.right * 4f, ForceMode2D.Impulse);
+
         }
     }
     public void attack2()
@@ -288,7 +318,9 @@ public class PlayerMovement : MonoBehaviour
 
         foreach (Collider2D enemyGameobject in enemy)
         {
-            Debug.Log("HitEnemy");
+            enemyGameobject.GetComponent<EnemyHealth>().health -= 3;
+
+            rbEnemy.AddForce(transform.right * 3f, ForceMode2D.Impulse);
         }
     }
     public void attack3()
@@ -297,7 +329,8 @@ public class PlayerMovement : MonoBehaviour
 
         foreach (Collider2D enemyGameobject in enemy)
         {
-            Debug.Log("HitEnemy");
+            enemyGameobject.GetComponent<EnemyHealth>().health -= 5;
+            rbEnemy.AddForce(transform.right * 5f, ForceMode2D.Impulse);
         }
     }
     public void forwardAttack3()
@@ -306,7 +339,8 @@ public class PlayerMovement : MonoBehaviour
 
         foreach (Collider2D enemyGameobject in enemy)
         {
-            Debug.Log("HitEnemy");
+            enemyGameobject.GetComponent<EnemyHealth>().health -= 5;
+            rbEnemy.AddForce(transform.right * 6f, ForceMode2D.Impulse);
         }
     }
     public void forwardAttack1()
@@ -315,7 +349,8 @@ public class PlayerMovement : MonoBehaviour
 
         foreach (Collider2D enemyGameobject in enemy)
         {
-            Debug.Log("HitEnemy");
+            enemyGameobject.GetComponent<EnemyHealth>().health -= 4;
+            rbEnemy.AddForce(transform.right * 4f, ForceMode2D.Impulse);
         }
     }
     public void downAttack1()
@@ -324,7 +359,8 @@ public class PlayerMovement : MonoBehaviour
 
         foreach (Collider2D enemyGameobject in enemy)
         {
-            Debug.Log("HitEnemy");
+            enemyGameobject.GetComponent<EnemyHealth>().health -= 3;
+            rbEnemy.AddForce(transform.right * 3f, ForceMode2D.Impulse);
         }
     }
     public void downAttack2()
@@ -333,7 +369,8 @@ public class PlayerMovement : MonoBehaviour
 
         foreach (Collider2D enemyGameobject in enemy)
         {
-            Debug.Log("HitEnemy");
+            enemyGameobject.GetComponent<EnemyHealth>().health -= 2;
+            rbEnemy.AddForce(transform.right * 7f, ForceMode2D.Impulse);
         }
     }
     public void downAttack3()
@@ -342,16 +379,18 @@ public class PlayerMovement : MonoBehaviour
 
         foreach (Collider2D enemyGameobject in enemy)
         {
-            Debug.Log("HitEnemy");
+            enemyGameobject.GetComponent<EnemyHealth>().health -= 6;
+            rbEnemy.AddForce(transform.right * 6f, ForceMode2D.Impulse);
         }
     }
     public void runAttack3()
     {
-        Collider2D[] enemy = Physics2D.OverlapCircleAll(runAttackPoint3.transform.position, radius, enemies);
+        Collider2D[] enemy = Physics2D.OverlapCircleAll(runAttackPoint3.transform.position, swordRadius, enemies);
 
         foreach (Collider2D enemyGameobject in enemy)
         {
-            Debug.Log("HitEnemy");
+            enemyGameobject.GetComponent<EnemyHealth>().health -= 3;
+            rbEnemy.AddForce(transform.right * 7f, ForceMode2D.Impulse);
         }
     }
     public void dahAttack1()
@@ -360,17 +399,21 @@ public class PlayerMovement : MonoBehaviour
 
         foreach (Collider2D enemyGameobject in enemy)
         {
-            Debug.Log("HitEnemy");
+            enemyGameobject.GetComponent<EnemyHealth>().health -= 4;
+            rbEnemy.AddForce(transform.right * 2f, ForceMode2D.Impulse);
+            rbEnemy.AddForce(transform.up * 4f, ForceMode2D.Impulse);
         }
     }
     public void dahAttack2()
     {
-       Collider2D[] enemy = Physics2D.OverlapCircleAll(dahAttackPoint2.transform.position, radius, enemies);
+       Collider2D[] enemy = Physics2D.OverlapCircleAll(dahAttackPoint2.transform.position, swordRadius, enemies);
 
        foreach (Collider2D enemyGameobject in enemy)
        {
-           Debug.Log("HitEnemy");
-       } 
+            enemyGameobject.GetComponent<EnemyHealth>().health -= 7;
+            rbEnemy.AddForce(transform.right * 0.1f, ForceMode2D.Impulse);
+            rbEnemy.AddForce(transform.up * 4f, ForceMode2D.Impulse);
+        } 
     }
     public void launchAttack3()
     {
@@ -378,8 +421,10 @@ public class PlayerMovement : MonoBehaviour
 
        foreach (Collider2D enemyGameobject in enemy)
        {
-           Debug.Log("HitEnemy");
-       } 
+            enemyGameobject.GetComponent<EnemyHealth>().health -= 3;
+            rbEnemy.AddForce(transform.right * 2f, ForceMode2D.Impulse);
+            rbEnemy.AddForce(transform.up * 5f, ForceMode2D.Impulse);
+        } 
     }
     public void jumpAttack3()
     {
@@ -387,8 +432,9 @@ public class PlayerMovement : MonoBehaviour
 
        foreach (Collider2D enemyGameobject in enemy)
        {
-           Debug.Log("HitEnemy");
-       } 
+            enemyGameobject.GetComponent<EnemyHealth>().health -= 4;
+            rbEnemy.AddForce(transform.right * 5f, ForceMode2D.Impulse);
+        } 
     }
     public void jumpAttack2()
     {
@@ -396,8 +442,9 @@ public class PlayerMovement : MonoBehaviour
 
        foreach (Collider2D enemyGameobject in enemy)
        {
-           Debug.Log("HitEnemy");
-       } 
+            enemyGameobject.GetComponent<EnemyHealth>().health -= 3;
+            rbEnemy.AddForce(transform.right * 4f, ForceMode2D.Impulse);
+        } 
     }
     public void jumpAttack1()
     {
@@ -405,8 +452,9 @@ public class PlayerMovement : MonoBehaviour
 
        foreach (Collider2D enemyGameobject in enemy)
        {
-           Debug.Log("HitEnemy");
-       } 
+            enemyGameobject.GetComponent<EnemyHealth>().health -= 2;
+            rbEnemy.AddForce(transform.right * 3f, ForceMode2D.Impulse);
+        } 
     }
 
     public void endAttack1()
@@ -499,23 +547,6 @@ public class PlayerMovement : MonoBehaviour
         canAttack = true;
     }
 
-    public void DAH()
-    {
-        Debug.Log("Can EWHF");
-        if (Input.GetButtonDown(Attack1))
-        {
-            Debug.Log("EWHF");
-            canAttack = false;
-            animator.SetBool("DAH", true);
-            audioPlay.PlayOneShot(electricAudio, 1.0f);
-        }
-        else
-        {
-            canAttack = true;
-            animator.SetBool("DAH", false);
-        }
-    }
-
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(attackPoint1.transform.position, radius);
@@ -523,10 +554,10 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.DrawWireSphere(attackPoint3.transform.position, radius);
         Gizmos.DrawWireSphere(forwardAttackPoint3.transform.position, radius);
         Gizmos.DrawWireSphere(forwardAttackPoint1.transform.position, radius);
-        Gizmos.DrawWireSphere(runAttackPoint3.transform.position, radius);
+        Gizmos.DrawWireSphere(runAttackPoint3.transform.position, swordRadius);
         Gizmos.DrawWireSphere(dahAttackPoint2.transform.position, radius);
         Gizmos.DrawWireSphere(dahAttackPoint1.transform.position, radius);
-        Gizmos.DrawWireSphere(downAttackPoint2.transform.position, radius);
+        Gizmos.DrawWireSphere(downAttackPoint2.transform.position, swordRadius);
         Gizmos.DrawWireSphere(downAttackPoint1.transform.position, radius);
         Gizmos.DrawWireSphere(launchAttackPoint3.transform.position, swordRadius);
         Gizmos.DrawWireSphere(downAttackPoint3.transform.position, swordRadius);
