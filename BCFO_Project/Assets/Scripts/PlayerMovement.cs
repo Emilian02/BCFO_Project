@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
     AudioSource audioPlay;
     AudioSource musicPlay;
 
-    private bool slide = false;
+    public static bool slide = false;
     private bool canAttack = true;
     private bool canAirAttack = true;
     private bool isCrouching = false;

@@ -14,8 +14,13 @@ public class EnemyAi1 : MonoBehaviour
     [SerializeField] private EnemyMovement movement;
     [SerializeField] private DetectionZone attackZone;
     [SerializeField] private Animator animator;
+    [Header("HIT BOXES")]
+    [SerializeField] private GameObject punchPoint;
+    [SerializeField] public float radius;
 
-    
+    public LayerMask players;
+
+
 
 
     private void Start()
@@ -39,6 +44,23 @@ public class EnemyAi1 : MonoBehaviour
             Walking();
         }
 
+    }
+
+    public void punch()
+    {
+        Collider2D[] player = Physics2D.OverlapCircleAll(punchPoint.transform.position, radius, players);
+
+        foreach (Collider2D playerGameobject in player)
+        {
+            PlayerMovement.slide = true;
+            Debug.Log("Enemy hit you");
+            playerGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * -5f, ForceMode2D.Impulse);
+
+        }
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(punchPoint.transform.position, radius);
     }
 
     private void Walking()
