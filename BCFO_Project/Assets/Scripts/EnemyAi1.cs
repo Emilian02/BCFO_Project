@@ -15,9 +15,12 @@ public class EnemyAi1 : MonoBehaviour
     [SerializeField] private DetectionZone attackZone;
     [SerializeField] private Animator animator;
 
+    
+
+
     private void Start()
     {
-      
+        Physics2D.IgnoreLayerCollision(3, 3);
     }
 
     private void Update()
@@ -33,7 +36,6 @@ public class EnemyAi1 : MonoBehaviour
 
         if (movement.rb.velocity.x != 0)
         {
-            Debug.Log(movement.rb.velocity.x);
             Walking();
         }
 
@@ -48,8 +50,11 @@ public class EnemyAi1 : MonoBehaviour
     {
         animator.SetBool("hasTarget", true);
         int attack = Random.Range(1, 3);
+
         animator.SetInteger("Attack", attack);
     }
+
+   
 
     private void AwayAttackZone()
     {
