@@ -1553,21 +1553,13 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 311202877}
-    - target: {fileID: 397256028, guid: ec9d6c22f3d3caa47aa26271f1f2ce65, type: 3}
-      propertyPath: radius
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 397256028, guid: ec9d6c22f3d3caa47aa26271f1f2ce65, type: 3}
-      propertyPath: punchPoint
-      value: 
-      objectReference: {fileID: 1396423863}
-    - target: {fileID: 397256028, guid: ec9d6c22f3d3caa47aa26271f1f2ce65, type: 3}
-      propertyPath: players.m_Bits
-      value: 128
-      objectReference: {fileID: 0}
     - target: {fileID: 3517941325327093666, guid: ec9d6c22f3d3caa47aa26271f1f2ce65, type: 3}
       propertyPath: m_Name
       value: EnemyAi1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3517941325327093694, guid: ec9d6c22f3d3caa47aa26271f1f2ce65, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.35
       objectReference: {fileID: 0}
     - target: {fileID: 3517941325327093695, guid: ec9d6c22f3d3caa47aa26271f1f2ce65, type: 3}
       propertyPath: m_RootOrder
@@ -3129,11 +3121,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!1 &1396423863 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1396423863, guid: ec9d6c22f3d3caa47aa26271f1f2ce65, type: 3}
-  m_PrefabInstance: {fileID: 842243872}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1418340323
 GameObject:
   m_ObjectHideFlags: 0
