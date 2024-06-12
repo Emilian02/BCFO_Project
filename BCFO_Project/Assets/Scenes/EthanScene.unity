@@ -1553,6 +1553,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 311202877}
+    - target: {fileID: 397256027, guid: ec9d6c22f3d3caa47aa26271f1f2ce65, type: 3}
+      propertyPath: jumpNodeHeightRequirement
+      value: 0.35
+      objectReference: {fileID: 0}
     - target: {fileID: 3517941325327093666, guid: ec9d6c22f3d3caa47aa26271f1f2ce65, type: 3}
       propertyPath: m_Name
       value: EnemyAi1
@@ -1647,7 +1651,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 943543989}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Platforms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1754,7 +1758,7 @@ GameObject:
   - component: {fileID: 964990366}
   - component: {fileID: 964990365}
   - component: {fileID: 964990364}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground (8)
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -2203,7 +2207,7 @@ GameObject:
   - component: {fileID: 1096394250}
   - component: {fileID: 1096394249}
   - component: {fileID: 1096394248}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground (6)
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -2363,7 +2367,7 @@ GameObject:
   - component: {fileID: 1116851820}
   - component: {fileID: 1116851819}
   - component: {fileID: 1116851818}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground (9)
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -2523,7 +2527,7 @@ GameObject:
   - component: {fileID: 1122478941}
   - component: {fileID: 1122478940}
   - component: {fileID: 1122478939}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground (1)
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -3165,7 +3169,7 @@ GameObject:
   - component: {fileID: 1450225759}
   - component: {fileID: 1450225758}
   - component: {fileID: 1450225757}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground (5)
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -3356,7 +3360,7 @@ GameObject:
   - component: {fileID: 1468843107}
   - component: {fileID: 1468843106}
   - component: {fileID: 1468843105}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground (10)
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -3516,7 +3520,7 @@ GameObject:
   - component: {fileID: 1520566180}
   - component: {fileID: 1520566179}
   - component: {fileID: 1520566178}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -3794,7 +3798,7 @@ GameObject:
   - component: {fileID: 1672814272}
   - component: {fileID: 1672814271}
   - component: {fileID: 1672814270}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground (3)
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -4072,7 +4076,7 @@ GameObject:
   - component: {fileID: 1828724254}
   - component: {fileID: 1828724253}
   - component: {fileID: 1828724252}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground (4)
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -4380,7 +4384,7 @@ GameObject:
   - component: {fileID: 1884963705}
   - component: {fileID: 1884963704}
   - component: {fileID: 1884963703}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground (7)
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -5006,7 +5010,7 @@ GameObject:
   - component: {fileID: 2123518272}
   - component: {fileID: 2123518271}
   - component: {fileID: 2123518270}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground (2)
   m_TagString: Platform
   m_Icon: {fileID: 0}
