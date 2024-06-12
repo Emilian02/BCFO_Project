@@ -5,6 +5,8 @@ using Pathfinding;
 using TMPro;
 using Pathfinding.Util;
 using Unity.VisualScripting;
+using System.Diagnostics;
+using Debug = UnityEngine.Debug;
 
 public class EnemyAi1 : MonoBehaviour
 {
@@ -25,11 +27,13 @@ public class EnemyAi1 : MonoBehaviour
     [SerializeField] private bool jumpEnable = true;
     [SerializeField] private bool directionLookEnable = true;
     [SerializeField] private Animator animator;
+    [SerializeField] private DetectionZone attackZone;
 
 
     private Path path;
     private int currentWaypoint = 0;
     bool isGrounded = false;
+    bool canMove = true;
     Seeker seeker;
     Rigidbody2D rb;
 
@@ -89,15 +93,24 @@ public class EnemyAi1 : MonoBehaviour
             }
         }
 
-        //Movement
-        rb.AddForce(force);
-        if (rb.velocity.magnitude != 0)
+        if(attackZone.detectedCols.Count > 0)
         {
-            Walking();
+            AttackPattern();
         }
         else
         {
-            Idle();
+            AwayAttackZone();
+        }
+
+        //Movement
+        if(canMove)
+        {
+            rb.AddForce(force);
+        }
+
+        if (rb.velocity.magnitude != 0)
+        {
+            Walking();
         }
 
 
@@ -135,14 +148,23 @@ public class EnemyAi1 : MonoBehaviour
             currentWaypoint = 0;
         }
     }
-    private void Idle()
-    {
-        animator.SetBool("isWalking", false);
-    }
 
     private void Walking()
     {
         animator.SetBool("isWalking", true);
     }
 
+    private void AttackPattern()
+    {
+        animator.SetBool("hasTarget", true);
+        int attack = Random.Range(1, 3);
+        canMove = false;
+        animator.SetInteger("Attack", attack);
+    }
+
+    private void AwayAttackZone()
+    {
+        animator.SetBool("hasTarget", false);
+        canMove = true;
+    }
 }
