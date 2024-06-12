@@ -346,21 +346,82 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e46a42277551f6c40a17240b4a211a04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movement: {fileID: 0}
+  attackZone: {fileID: 0}
+  animator: {fileID: 0}
+--- !u!1 &397256018 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3517941325327093666, guid: ec9d6c22f3d3caa47aa26271f1f2ce65, type: 3}
+  m_PrefabInstance: {fileID: 3517941325688715631}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &397256022 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 3517941325327093693, guid: ec9d6c22f3d3caa47aa26271f1f2ce65, type: 3}
+  m_PrefabInstance: {fileID: 3517941325688715631}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &397256023 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3517941325327093665, guid: ec9d6c22f3d3caa47aa26271f1f2ce65, type: 3}
+  m_PrefabInstance: {fileID: 3517941325688715631}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &397256026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397256018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 672bb9f158da6dc4e98eafcfea5dc861, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 50
+  currenthealth: 50
+  isBoss: 0
+--- !u!114 &397256027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397256018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26e3ac0d2019cbb43bc399a035a8a4c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   target: {fileID: 1795767415}
   activeDistance: 10
   pathUpdateSeconds: 0.5
   layerMask:
     serializedVersion: 2
     m_Bits: 64
-  speed: 200
+  speed: 400
+  jumpSpeed: 200
   nextWaypointDistance: 3
-  jumpNodeHeightRequirement: 0.15
+  jumpNodeHeightRequirement: 0.35
   jumpModifier: 1
   followEnable: 1
   jumpEnable: 1
   directionLookEnable: 1
-  animator: {fileID: 0}
-  attackZone: {fileID: 0}
+  attackZone: {fileID: 1827461923}
+  rb: {fileID: 397256022}
+--- !u!114 &397256028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397256018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e46a42277551f6c40a17240b4a211a04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movement: {fileID: 397256027}
+  attackZone: {fileID: 1827461923}
+  animator: {fileID: 397256023}
 --- !u!1 &713490798
 GameObject:
   m_ObjectHideFlags: 0
@@ -859,6 +920,7 @@ MonoBehaviour:
   Attack3: Attack3
   Dodge: Dodge
   rb: {fileID: 1795767413}
+  rbEnemy: {fileID: 0}
   spriteRenderer: {fileID: 1795767414}
   attackPoint1: {fileID: 1567024266}
   attackPoint2: {fileID: 713490798}
@@ -881,6 +943,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   electricAudio: {fileID: 0}
+  stage0Audio: {fileID: 0}
 --- !u!95 &1795767410
 Animator:
   serializedVersion: 4
@@ -1220,6 +1283,10 @@ PrefabInstance:
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 3517941325327093692, guid: ec9d6c22f3d3caa47aa26271f1f2ce65, type: 3}
+      propertyPath: speed
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 3517941325327093692, guid: ec9d6c22f3d3caa47aa26271f1f2ce65, type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 1795767415}
@@ -1275,5 +1342,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -0.55
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3517941325327093692, guid: ec9d6c22f3d3caa47aa26271f1f2ce65, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ec9d6c22f3d3caa47aa26271f1f2ce65, type: 3}
