@@ -54,6 +54,7 @@ public class EnemyAi1 : MonoBehaviour
         {
             PlayerMovement.slide = true;
             Debug.Log("Enemy hit you");
+            playerGameobject.GetComponent<PlayerHealth>().health -= 5;
             playerGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * -3f, ForceMode2D.Impulse);
 
         }
@@ -66,6 +67,7 @@ public class EnemyAi1 : MonoBehaviour
         {
             PlayerMovement.slide = true;
             Debug.Log("Enemy hit you");
+            playerGameobject.GetComponent<PlayerHealth>().health -= 10;
             playerGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * -5f, ForceMode2D.Impulse);
 
         }
