@@ -24,6 +24,12 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private bool directionLookEnable = true;
     [SerializeField] private DetectionZone attackZone;
 
+    [Header("HIT BOXES")]
+    [SerializeField] private GameObject punchPoint;
+    [SerializeField] public float radius;
+
+    public LayerMask players;
+
 
     private Path path;
     private int currentWaypoint = 0;
@@ -56,6 +62,21 @@ public class EnemyMovement : MonoBehaviour
         {
             seeker.StartPath(rb.position, target.position, OnPathComplete);
         }
+    }
+
+    public void punch()
+    {
+        Collider2D[] player = Physics2D.OverlapCircleAll(punchPoint.transform.position, radius, players);
+
+        foreach (Collider2D playerGameobject in player)
+        {
+            playerGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 400f, ForceMode2D.Impulse);
+
+        }
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(punchPoint.transform.position, radius);
     }
 
     private void PathFollow()

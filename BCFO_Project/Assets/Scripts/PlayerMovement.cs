@@ -27,28 +27,27 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("DRAGABLE OBJECTS")]
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private Rigidbody2D rbEnemy;
     [SerializeField] private SpriteRenderer spriteRenderer;
 
     private bool canJump = false;
     private float horizontalMovement;
 
     [Header("HIT BOXES")]
-    [SerializeField] public GameObject attackPoint1;
-    [SerializeField] public GameObject attackPoint2;
-    [SerializeField] public GameObject attackPoint3;
-    [SerializeField] public GameObject forwardAttackPoint1;
-    [SerializeField] public GameObject forwardAttackPoint3;
-    [SerializeField] public GameObject runAttackPoint3;
-    [SerializeField] public GameObject dahAttackPoint1;
-    [SerializeField] public GameObject dahAttackPoint2;
-    [SerializeField] public GameObject downAttackPoint1;
-    [SerializeField] public GameObject downAttackPoint2;
-    [SerializeField] public GameObject downAttackPoint3;
-    [SerializeField] public GameObject launchAttackPoint3;
-    [SerializeField] public GameObject jumpAttackPoint1;
-    [SerializeField] public GameObject jumpAttackPoint2;
-    [SerializeField] public GameObject jumpAttackPoint3;
+    [SerializeField] private GameObject attackPoint1;
+    [SerializeField] private GameObject attackPoint2;
+    [SerializeField] private GameObject attackPoint3;
+    [SerializeField] private GameObject forwardAttackPoint1;
+    [SerializeField] private GameObject forwardAttackPoint3;
+    [SerializeField] private GameObject runAttackPoint3;
+    [SerializeField] private GameObject dahAttackPoint1;
+    [SerializeField] private GameObject dahAttackPoint2;
+    [SerializeField] private GameObject downAttackPoint1;
+    [SerializeField] private GameObject downAttackPoint2;
+    [SerializeField] private GameObject downAttackPoint3;
+    [SerializeField] private GameObject launchAttackPoint3;
+    [SerializeField] private GameObject jumpAttackPoint1;
+    [SerializeField] private GameObject jumpAttackPoint2;
+    [SerializeField] private GameObject jumpAttackPoint3;
     [SerializeField] public float radius;
     [SerializeField] public float swordRadius;
     public LayerMask enemies;
@@ -307,8 +306,7 @@ public class PlayerMovement : MonoBehaviour
         foreach (Collider2D enemyGameobject in enemy)
         {
             enemyGameobject.GetComponent<EnemyHealth>().health -= 4;
-
-            rbEnemy.AddForce(transform.right * 4f, ForceMode2D.Impulse);
+            enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 4f, ForceMode2D.Impulse);
 
         }
     }
@@ -320,7 +318,7 @@ public class PlayerMovement : MonoBehaviour
         {
             enemyGameobject.GetComponent<EnemyHealth>().health -= 3;
 
-            rbEnemy.AddForce(transform.right * 3f, ForceMode2D.Impulse);
+            enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 3f, ForceMode2D.Impulse);
         }
     }
     public void attack3()
@@ -330,7 +328,7 @@ public class PlayerMovement : MonoBehaviour
         foreach (Collider2D enemyGameobject in enemy)
         {
             enemyGameobject.GetComponent<EnemyHealth>().health -= 5;
-            rbEnemy.AddForce(transform.right * 5f, ForceMode2D.Impulse);
+            enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 5f, ForceMode2D.Impulse);
         }
     }
     public void forwardAttack3()
@@ -340,7 +338,7 @@ public class PlayerMovement : MonoBehaviour
         foreach (Collider2D enemyGameobject in enemy)
         {
             enemyGameobject.GetComponent<EnemyHealth>().health -= 5;
-            rbEnemy.AddForce(transform.right * 6f, ForceMode2D.Impulse);
+            enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 6f, ForceMode2D.Impulse);
         }
     }
     public void forwardAttack1()
@@ -350,7 +348,7 @@ public class PlayerMovement : MonoBehaviour
         foreach (Collider2D enemyGameobject in enemy)
         {
             enemyGameobject.GetComponent<EnemyHealth>().health -= 4;
-            rbEnemy.AddForce(transform.right * 4f, ForceMode2D.Impulse);
+            enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 4f, ForceMode2D.Impulse);
         }
     }
     public void downAttack1()
@@ -360,7 +358,7 @@ public class PlayerMovement : MonoBehaviour
         foreach (Collider2D enemyGameobject in enemy)
         {
             enemyGameobject.GetComponent<EnemyHealth>().health -= 3;
-            rbEnemy.AddForce(transform.right * 3f, ForceMode2D.Impulse);
+            enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 3f, ForceMode2D.Impulse);
         }
     }
     public void downAttack2()
@@ -370,7 +368,7 @@ public class PlayerMovement : MonoBehaviour
         foreach (Collider2D enemyGameobject in enemy)
         {
             enemyGameobject.GetComponent<EnemyHealth>().health -= 2;
-            rbEnemy.AddForce(transform.right * 7f, ForceMode2D.Impulse);
+            enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 7f, ForceMode2D.Impulse);
         }
     }
     public void downAttack3()
@@ -380,7 +378,7 @@ public class PlayerMovement : MonoBehaviour
         foreach (Collider2D enemyGameobject in enemy)
         {
             enemyGameobject.GetComponent<EnemyHealth>().health -= 6;
-            rbEnemy.AddForce(transform.right * 6f, ForceMode2D.Impulse);
+            enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 6f, ForceMode2D.Impulse);
         }
     }
     public void runAttack3()
@@ -390,7 +388,7 @@ public class PlayerMovement : MonoBehaviour
         foreach (Collider2D enemyGameobject in enemy)
         {
             enemyGameobject.GetComponent<EnemyHealth>().health -= 3;
-            rbEnemy.AddForce(transform.right * 7f, ForceMode2D.Impulse);
+            enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 7f, ForceMode2D.Impulse);
         }
     }
     public void dahAttack1()
@@ -400,8 +398,8 @@ public class PlayerMovement : MonoBehaviour
         foreach (Collider2D enemyGameobject in enemy)
         {
             enemyGameobject.GetComponent<EnemyHealth>().health -= 4;
-            rbEnemy.AddForce(transform.right * 2f, ForceMode2D.Impulse);
-            rbEnemy.AddForce(transform.up * 4f, ForceMode2D.Impulse);
+            enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 2f, ForceMode2D.Impulse);
+            enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.up * 4f, ForceMode2D.Impulse);
         }
     }
     public void dahAttack2()
@@ -411,8 +409,8 @@ public class PlayerMovement : MonoBehaviour
        foreach (Collider2D enemyGameobject in enemy)
        {
             enemyGameobject.GetComponent<EnemyHealth>().health -= 7;
-            rbEnemy.AddForce(transform.right * 0.1f, ForceMode2D.Impulse);
-            rbEnemy.AddForce(transform.up * 4f, ForceMode2D.Impulse);
+            enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 0.1f, ForceMode2D.Impulse);
+            enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.up * 4f, ForceMode2D.Impulse);
         } 
     }
     public void launchAttack3()
@@ -422,8 +420,8 @@ public class PlayerMovement : MonoBehaviour
        foreach (Collider2D enemyGameobject in enemy)
        {
             enemyGameobject.GetComponent<EnemyHealth>().health -= 3;
-            rbEnemy.AddForce(transform.right * 2f, ForceMode2D.Impulse);
-            rbEnemy.AddForce(transform.up * 5f, ForceMode2D.Impulse);
+            enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 2f, ForceMode2D.Impulse);
+            enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.up * 5f, ForceMode2D.Impulse);
         } 
     }
     public void jumpAttack3()
@@ -433,7 +431,7 @@ public class PlayerMovement : MonoBehaviour
        foreach (Collider2D enemyGameobject in enemy)
        {
             enemyGameobject.GetComponent<EnemyHealth>().health -= 4;
-            rbEnemy.AddForce(transform.right * 5f, ForceMode2D.Impulse);
+            enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 5f, ForceMode2D.Impulse);
         } 
     }
     public void jumpAttack2()
@@ -443,7 +441,7 @@ public class PlayerMovement : MonoBehaviour
        foreach (Collider2D enemyGameobject in enemy)
        {
             enemyGameobject.GetComponent<EnemyHealth>().health -= 3;
-            rbEnemy.AddForce(transform.right * 4f, ForceMode2D.Impulse);
+            enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 4f, ForceMode2D.Impulse);
         } 
     }
     public void jumpAttack1()
@@ -453,7 +451,7 @@ public class PlayerMovement : MonoBehaviour
        foreach (Collider2D enemyGameobject in enemy)
        {
             enemyGameobject.GetComponent<EnemyHealth>().health -= 2;
-            rbEnemy.AddForce(transform.right * 3f, ForceMode2D.Impulse);
+            enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 3f, ForceMode2D.Impulse);
         } 
     }
 
@@ -462,19 +460,16 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("Attack1", false);
         canAttack = true;
     }
-    
     public void endAttack2()
     {
         animator.SetBool("Attack2", false);
         canAttack = true;
     }
-
     public void endAttack3()
     {
         animator.SetBool("Attack3", false);
         canAttack = true;
     }
-    
     public void endForwardAttack3()
     {
         animator.SetBool("ForwardA3", false);
@@ -546,7 +541,6 @@ public class PlayerMovement : MonoBehaviour
         slide = false;
         canAttack = true;
     }
-
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(attackPoint1.transform.position, radius);
@@ -566,7 +560,6 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.DrawWireSphere(jumpAttackPoint2.transform.position, radius);
         Gizmos.DrawWireSphere(jumpAttackPoint1.transform.position, radius);
     }
-
     private void FixedUpdate()
     {
         if (slide == false)
@@ -580,7 +573,6 @@ public class PlayerMovement : MonoBehaviour
         canJump = true;
         animator.SetBool("HasJumped", false);
     }
-
     public void FellOffPlatform()
     {
         canJump = false;
