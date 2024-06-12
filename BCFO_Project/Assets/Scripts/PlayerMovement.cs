@@ -87,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
         else if (startCutscene.isCutsceneOn || isBossFight == true)
         {
             StopMusic();
-            animator.SetBool("IsRunning", true);
+            animator.SetBool("IsRunning", false);
             animator.SetBool("IsCrouching", false);
         }
     }
