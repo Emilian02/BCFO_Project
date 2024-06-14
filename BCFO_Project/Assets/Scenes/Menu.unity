@@ -883,9 +883,9 @@ GameObject:
   - component: {fileID: 680471781}
   - component: {fileID: 680471779}
   - component: {fileID: 680471778}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider (1)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1436,7 +1436,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1104583508}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -158.7511, y: -147.19643, z: 0}
+  m_LocalPosition: {x: 7, y: -46, z: 0}
   m_LocalScale: {x: 0.23444255, y: 0.23444255, z: 0.23444255}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1591,9 +1591,9 @@ GameObject:
   - component: {fileID: 1176999036}
   - component: {fileID: 1176999034}
   - component: {fileID: 1176999033}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider (3)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1671,9 +1671,9 @@ GameObject:
   - component: {fileID: 1234232820}
   - component: {fileID: 1234232818}
   - component: {fileID: 1234232817}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider (2)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2284,11 +2284,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1631316802647205388, guid: a763aece6a5f5ca4da4046524cd0fc43, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -530.32
+      value: -963
       objectReference: {fileID: 0}
     - target: {fileID: 1631316802647205388, guid: a763aece6a5f5ca4da4046524cd0fc43, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -472.7
+      value: -713.83
       objectReference: {fileID: 0}
     - target: {fileID: 1631316802647205388, guid: a763aece6a5f5ca4da4046524cd0fc43, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3024,9 +3024,9 @@ GameObject:
   - component: {fileID: 1992787775}
   - component: {fileID: 1992787773}
   - component: {fileID: 1992787772}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
