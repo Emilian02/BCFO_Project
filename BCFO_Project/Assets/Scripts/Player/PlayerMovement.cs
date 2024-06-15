@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private string Attack2;
     [SerializeField] private string Attack3;
     [SerializeField] private string Dodge;
+    [SerializeField] private string TeleportActivate;
 
     [Header("DRAGABLE OBJECTS")]
     [SerializeField] private Rigidbody2D rb;
@@ -63,6 +64,7 @@ public class PlayerMovement : MonoBehaviour
     private bool canAirAttack = true;
     private bool isCrouching = false;
     private bool isRunning = false;
+    public static bool canTeleport = false;
     public static bool isBossFight = false;
 
     void Start()
@@ -115,6 +117,15 @@ public class PlayerMovement : MonoBehaviour
             isCrouching = false;
             animator.SetBool("IsCrouching", false);
             animator.SetBool("IsRunning", false);
+        } 
+        
+        if (Input.GetButtonDown(TeleportActivate))
+        {
+            canTeleport = true;
+        }
+        if (Input.GetButtonUp(TeleportActivate))
+        {
+            canTeleport = false;
         }
 
         if (canAttack == true)
