@@ -308,11 +308,14 @@ public class PlayerMovement : MonoBehaviour
         foreach (Collider2D enemyGameobject in enemy)
         {
             enemyGameobject.GetComponent<EnemyHealth>().health -= 4;
-            enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 4f, ForceMode2D.Impulse);
-            if(enemyGameobject.tag == "Enemy1")
+            if (EnemyHealth.isBoss == false)
             {
-                enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
-                enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+                enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 4f, ForceMode2D.Impulse);
+                if (enemyGameobject.tag == "Enemy1")
+                {
+                    enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
+                    enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+                }
             }
         }
     }
@@ -323,12 +326,14 @@ public class PlayerMovement : MonoBehaviour
         foreach (Collider2D enemyGameobject in enemy)
         {
             enemyGameobject.GetComponent<EnemyHealth>().health -= 3;
-
-            enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 3f, ForceMode2D.Impulse);
-            if (enemyGameobject.tag == "Enemy1")
+            if (EnemyHealth.isBoss == false)
             {
-                enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
-                enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+                enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 3f, ForceMode2D.Impulse);
+                if (enemyGameobject.tag == "Enemy1")
+                {
+                    enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
+                    enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+                }
             }
         }
     }
@@ -339,11 +344,14 @@ public class PlayerMovement : MonoBehaviour
         foreach (Collider2D enemyGameobject in enemy)
         {
             enemyGameobject.GetComponent<EnemyHealth>().health -= 5;
-            enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 5f, ForceMode2D.Impulse);
-            if (enemyGameobject.tag == "Enemy1")
+            if (EnemyHealth.isBoss == false)
             {
-                enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
-                enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+                enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 5f, ForceMode2D.Impulse);
+                if (enemyGameobject.tag == "Enemy1")
+                {
+                    enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
+                    enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+                }
             }
         }
     }
@@ -354,11 +362,14 @@ public class PlayerMovement : MonoBehaviour
         foreach (Collider2D enemyGameobject in enemy)
         {
             enemyGameobject.GetComponent<EnemyHealth>().health -= 5;
-            enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 6f, ForceMode2D.Impulse);
-            if (enemyGameobject.tag == "Enemy1")
+            if (EnemyHealth.isBoss == false)
             {
-                enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
-                enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+                enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 6f, ForceMode2D.Impulse);
+                if (enemyGameobject.tag == "Enemy1")
+                {
+                    enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
+                    enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+                }
             }
         }
     }
@@ -369,11 +380,14 @@ public class PlayerMovement : MonoBehaviour
         foreach (Collider2D enemyGameobject in enemy)
         {
             enemyGameobject.GetComponent<EnemyHealth>().health -= 4;
-            enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 4f, ForceMode2D.Impulse);
-            if (enemyGameobject.tag == "Enemy1")
+            if (EnemyHealth.isBoss == false)
             {
-                enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
-                enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+                enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 4f, ForceMode2D.Impulse);
+                if (enemyGameobject.tag == "Enemy1")
+                {
+                    enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
+                    enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+                }
             }
         }
     }
@@ -384,11 +398,14 @@ public class PlayerMovement : MonoBehaviour
         foreach (Collider2D enemyGameobject in enemy)
         {
             enemyGameobject.GetComponent<EnemyHealth>().health -= 3;
-            enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 3f, ForceMode2D.Impulse);
-            if (enemyGameobject.tag == "Enemy1")
+            if (EnemyHealth.isBoss == false)
             {
-                enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
-                enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+                enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 3f, ForceMode2D.Impulse);
+                if (enemyGameobject.tag == "Enemy1")
+                {
+                    enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
+                    enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+                }
             }
         }
     }
@@ -399,11 +416,14 @@ public class PlayerMovement : MonoBehaviour
         foreach (Collider2D enemyGameobject in enemy)
         {
             enemyGameobject.GetComponent<EnemyHealth>().health -= 2;
-            enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 7f, ForceMode2D.Impulse);
-            if (enemyGameobject.tag == "Enemy1")
+            if (EnemyHealth.isBoss == false)
             {
-                enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
-                enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+                enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 7f, ForceMode2D.Impulse);
+                if (enemyGameobject.tag == "Enemy1")
+                {
+                    enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
+                    enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+                }
             }
         }
     }
@@ -414,11 +434,14 @@ public class PlayerMovement : MonoBehaviour
         foreach (Collider2D enemyGameobject in enemy)
         {
             enemyGameobject.GetComponent<EnemyHealth>().health -= 6;
-            enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 6f, ForceMode2D.Impulse);
-            if (enemyGameobject.tag == "Enemy1")
+            if (EnemyHealth.isBoss == false)
             {
-                enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
-                enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+                enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 6f, ForceMode2D.Impulse);
+                if (enemyGameobject.tag == "Enemy1")
+                {
+                    enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
+                    enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+                }
             }
         }
     }
@@ -429,11 +452,14 @@ public class PlayerMovement : MonoBehaviour
         foreach (Collider2D enemyGameobject in enemy)
         {
             enemyGameobject.GetComponent<EnemyHealth>().health -= 3;
-            enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 7f, ForceMode2D.Impulse);
-            if (enemyGameobject.tag == "Enemy1")
+            if (EnemyHealth.isBoss == false)
             {
-                enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
-                enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+                enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 7f, ForceMode2D.Impulse);
+                if (enemyGameobject.tag == "Enemy1")
+                {
+                    enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
+                    enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+                }
             }
         }
     }
@@ -444,12 +470,15 @@ public class PlayerMovement : MonoBehaviour
         foreach (Collider2D enemyGameobject in enemy)
         {
             enemyGameobject.GetComponent<EnemyHealth>().health -= 4;
-            enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 2f, ForceMode2D.Impulse);
-            enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.up * 4f, ForceMode2D.Impulse);
-            if (enemyGameobject.tag == "Enemy1")
+            if (EnemyHealth.isBoss == false)
             {
-                enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
-                enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+                enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 2f, ForceMode2D.Impulse);
+                enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.up * 4f, ForceMode2D.Impulse);
+                if (enemyGameobject.tag == "Enemy1")
+                {
+                    enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
+                    enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+                }
             }
         }
     }
@@ -460,12 +489,15 @@ public class PlayerMovement : MonoBehaviour
        foreach (Collider2D enemyGameobject in enemy)
        {
             enemyGameobject.GetComponent<EnemyHealth>().health -= 7;
-            enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 0.1f, ForceMode2D.Impulse);
-            enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.up * 4f, ForceMode2D.Impulse);
-            if (enemyGameobject.tag == "Enemy1")
+            if (EnemyHealth.isBoss == false)
             {
-                enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
-                enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+                enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 0.1f, ForceMode2D.Impulse);
+                enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.up * 4f, ForceMode2D.Impulse);
+                if (enemyGameobject.tag == "Enemy1")
+                {
+                    enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
+                    enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+                }
             }
         } 
     }
@@ -476,12 +508,15 @@ public class PlayerMovement : MonoBehaviour
        foreach (Collider2D enemyGameobject in enemy)
        {
             enemyGameobject.GetComponent<EnemyHealth>().health -= 3;
-            enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 2f, ForceMode2D.Impulse);
-            enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.up * 5f, ForceMode2D.Impulse);
-            if (enemyGameobject.tag == "Enemy1")
+            if (EnemyHealth.isBoss == false)
             {
-                enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
-                enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+                enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 2f, ForceMode2D.Impulse);
+                enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.up * 5f, ForceMode2D.Impulse);
+                if (enemyGameobject.tag == "Enemy1")
+                {
+                    enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
+                    enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+                }
             }
         } 
     }
@@ -492,11 +527,14 @@ public class PlayerMovement : MonoBehaviour
        foreach (Collider2D enemyGameobject in enemy)
        {
             enemyGameobject.GetComponent<EnemyHealth>().health -= 4;
-            enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 5f, ForceMode2D.Impulse);
-            if (enemyGameobject.tag == "Enemy1")
+            if (EnemyHealth.isBoss == false)
             {
-                enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
-                enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+                enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 5f, ForceMode2D.Impulse);
+                if (enemyGameobject.tag == "Enemy1")
+                {
+                    enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
+                    enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+                }
             }
         } 
     }
@@ -507,11 +545,14 @@ public class PlayerMovement : MonoBehaviour
        foreach (Collider2D enemyGameobject in enemy)
        {
             enemyGameobject.GetComponent<EnemyHealth>().health -= 3;
-            enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 4f, ForceMode2D.Impulse);
-            if (enemyGameobject.tag == "Enemy1")
+            if (EnemyHealth.isBoss == false)
             {
-                enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
-                enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+                enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 4f, ForceMode2D.Impulse);
+                if (enemyGameobject.tag == "Enemy1")
+                {
+                    enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
+                    enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+                }
             }
         } 
     }
@@ -522,11 +563,14 @@ public class PlayerMovement : MonoBehaviour
        foreach (Collider2D enemyGameobject in enemy)
        {
             enemyGameobject.GetComponent<EnemyHealth>().health -= 2;
-            enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 3f, ForceMode2D.Impulse);
-            if (enemyGameobject.tag == "Enemy1")
+            if (EnemyHealth.isBoss == false)
             {
-                enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
-                enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+                enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 3f, ForceMode2D.Impulse);
+                if (enemyGameobject.tag == "Enemy1")
+                {
+                    enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
+                    enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+                }
             }
         } 
     }
