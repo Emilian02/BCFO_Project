@@ -23,6 +23,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private bool jumpEnable = true;
     [SerializeField] private bool directionLookEnable = true;
     [SerializeField] private DetectionZone attackZone;
+    [SerializeField] private string leftOrRight = "none";
 
     
 
@@ -116,13 +117,27 @@ public class EnemyMovement : MonoBehaviour
         //Direction Graphics Handling
         if (directionLookEnable)
         {
-            if (rb.velocity.x < 0.05f)
+            if (leftOrRight == "left")
             {
-                transform.eulerAngles = new Vector2(transform.eulerAngles.x, 0);
+                if (rb.velocity.x < 0.05f)
+                {
+                    transform.eulerAngles = new Vector2(transform.eulerAngles.x, 0);
+                }
+                else if (rb.velocity.x > -0.05f)
+                {
+                    transform.eulerAngles = new Vector2(transform.eulerAngles.x, 180);
+                }
             }
-            else if (rb.velocity.x > -0.05f)
+            else if (leftOrRight == "right") 
             {
-                transform.eulerAngles = new Vector2(transform.eulerAngles.x, 180);
+                if (rb.velocity.x < 0.05f)
+                {
+                    transform.eulerAngles = new Vector2(transform.eulerAngles.x, 180);
+                }
+                else if (rb.velocity.x > -0.05f)
+                {
+                    transform.eulerAngles = new Vector2(transform.eulerAngles.x, 0);
+                }
             }
         }
     }

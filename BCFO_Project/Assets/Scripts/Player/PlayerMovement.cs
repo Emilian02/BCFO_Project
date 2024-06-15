@@ -307,7 +307,11 @@ public class PlayerMovement : MonoBehaviour
         {
             enemyGameobject.GetComponent<EnemyHealth>().health -= 4;
             enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 4f, ForceMode2D.Impulse);
-            enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+            if(enemyGameobject.tag == "Enemy1")
+            {
+                enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
+                enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+            }
         }
     }
     public void attack2()
@@ -319,8 +323,11 @@ public class PlayerMovement : MonoBehaviour
             enemyGameobject.GetComponent<EnemyHealth>().health -= 3;
 
             enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 3f, ForceMode2D.Impulse);
-            enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
-            enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+            if (enemyGameobject.tag == "Enemy1")
+            {
+                enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
+                enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+            }
         }
     }
     public void attack3()
@@ -331,8 +338,11 @@ public class PlayerMovement : MonoBehaviour
         {
             enemyGameobject.GetComponent<EnemyHealth>().health -= 5;
             enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 5f, ForceMode2D.Impulse);
-            enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
-            enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+            if (enemyGameobject.tag == "Enemy1")
+            {
+                enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
+                enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+            }
         }
     }
     public void forwardAttack3()
@@ -343,8 +353,11 @@ public class PlayerMovement : MonoBehaviour
         {
             enemyGameobject.GetComponent<EnemyHealth>().health -= 5;
             enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 6f, ForceMode2D.Impulse);
-            enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
-            enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+            if (enemyGameobject.tag == "Enemy1")
+            {
+                enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
+                enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+            }
         }
     }
     public void forwardAttack1()
@@ -355,8 +368,11 @@ public class PlayerMovement : MonoBehaviour
         {
             enemyGameobject.GetComponent<EnemyHealth>().health -= 4;
             enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 4f, ForceMode2D.Impulse);
-            enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
-            enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+            if (enemyGameobject.tag == "Enemy1")
+            {
+                enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
+                enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+            }
         }
     }
     public void downAttack1()
@@ -367,8 +383,11 @@ public class PlayerMovement : MonoBehaviour
         {
             enemyGameobject.GetComponent<EnemyHealth>().health -= 3;
             enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 3f, ForceMode2D.Impulse);
-            enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
-            enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+            if (enemyGameobject.tag == "Enemy1")
+            {
+                enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
+                enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+            }
         }
     }
     public void downAttack2()
@@ -379,8 +398,11 @@ public class PlayerMovement : MonoBehaviour
         {
             enemyGameobject.GetComponent<EnemyHealth>().health -= 2;
             enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 7f, ForceMode2D.Impulse);
-            enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
-            enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+            if (enemyGameobject.tag == "Enemy1")
+            {
+                enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
+                enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+            }
         }
     }
     public void downAttack3()
@@ -391,8 +413,11 @@ public class PlayerMovement : MonoBehaviour
         {
             enemyGameobject.GetComponent<EnemyHealth>().health -= 6;
             enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 6f, ForceMode2D.Impulse);
-            enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
-            enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+            if (enemyGameobject.tag == "Enemy1")
+            {
+                enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
+                enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+            }
         }
     }
     public void runAttack3()
@@ -403,8 +428,11 @@ public class PlayerMovement : MonoBehaviour
         {
             enemyGameobject.GetComponent<EnemyHealth>().health -= 3;
             enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 7f, ForceMode2D.Impulse);
-            enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
-            enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+            if (enemyGameobject.tag == "Enemy1")
+            {
+                enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
+                enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+            }
         }
     }
     public void dahAttack1()
@@ -416,8 +444,11 @@ public class PlayerMovement : MonoBehaviour
             enemyGameobject.GetComponent<EnemyHealth>().health -= 4;
             enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 2f, ForceMode2D.Impulse);
             enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.up * 4f, ForceMode2D.Impulse);
-            enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
-            enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+            if (enemyGameobject.tag == "Enemy1")
+            {
+                enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
+                enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+            }
         }
     }
     public void dahAttack2()
@@ -429,8 +460,11 @@ public class PlayerMovement : MonoBehaviour
             enemyGameobject.GetComponent<EnemyHealth>().health -= 7;
             enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 0.1f, ForceMode2D.Impulse);
             enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.up * 4f, ForceMode2D.Impulse);
-            enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
-            enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+            if (enemyGameobject.tag == "Enemy1")
+            {
+                enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
+                enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+            }
         } 
     }
     public void launchAttack3()
@@ -442,8 +476,11 @@ public class PlayerMovement : MonoBehaviour
             enemyGameobject.GetComponent<EnemyHealth>().health -= 3;
             enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 2f, ForceMode2D.Impulse);
             enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.up * 5f, ForceMode2D.Impulse);
-            enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
-            enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+            if (enemyGameobject.tag == "Enemy1")
+            {
+                enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
+                enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+            }
         } 
     }
     public void jumpAttack3()
@@ -454,8 +491,11 @@ public class PlayerMovement : MonoBehaviour
        {
             enemyGameobject.GetComponent<EnemyHealth>().health -= 4;
             enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 5f, ForceMode2D.Impulse);
-            enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
-            enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+            if (enemyGameobject.tag == "Enemy1")
+            {
+                enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
+                enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+            }
         } 
     }
     public void jumpAttack2()
@@ -466,8 +506,11 @@ public class PlayerMovement : MonoBehaviour
        {
             enemyGameobject.GetComponent<EnemyHealth>().health -= 3;
             enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 4f, ForceMode2D.Impulse);
-            enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
-            enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+            if (enemyGameobject.tag == "Enemy1")
+            {
+                enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
+                enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+            }
         } 
     }
     public void jumpAttack1()
@@ -478,8 +521,11 @@ public class PlayerMovement : MonoBehaviour
        {
             enemyGameobject.GetComponent<EnemyHealth>().health -= 2;
             enemyGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 3f, ForceMode2D.Impulse);
-            enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
-            enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+            if (enemyGameobject.tag == "Enemy1")
+            {
+                enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
+                enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+            }
         } 
     }
 
