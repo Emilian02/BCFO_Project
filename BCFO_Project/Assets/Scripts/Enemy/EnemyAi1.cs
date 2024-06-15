@@ -12,6 +12,7 @@ public class EnemyAi1 : MonoBehaviour
 {
     [Header("Scripts")]
     [SerializeField] private EnemyMovement movement;
+    [SerializeField] private EnemyHealth health;
     [SerializeField] private DetectionZone attackZone;
     [SerializeField] private Animator animator;
     [Header("HIT BOXES")]
@@ -34,10 +35,17 @@ public class EnemyAi1 : MonoBehaviour
 
     private void Update()
     {
-        if(hurt)
+        if(health.health <= 0)
         {
+            animator.SetBool("isDead", true);
+            movement.enabled = false;
+            DeadTimer();
+        }
+        else if(hurt)
+        {
+            movement.enabled = false;
             animator.SetBool("isHurt", true);
-            Timer();
+            StuntTimer();
         }
         else
         {
@@ -108,7 +116,7 @@ public class EnemyAi1 : MonoBehaviour
         animator.SetBool("hasTarget", false);
     }
 
-    private void Timer()
+    private void StuntTimer()
     {
         timer += Time.deltaTime;
         if(timer >= 1.5f)
@@ -116,6 +124,16 @@ public class EnemyAi1 : MonoBehaviour
             hurt = false;
             timer = 0.0f;
             animator.SetBool("isHurt", hurt);
+            movement.enabled = true;
+        }
+    }
+
+    private void DeadTimer()
+    {
+        timer += Time.deltaTime;
+        if (timer >= 2.5f)
+        {
+            Destroy(gameObject);
         }
     }
 }

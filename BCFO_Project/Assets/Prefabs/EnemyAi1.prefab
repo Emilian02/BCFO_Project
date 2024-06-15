@@ -150,7 +150,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.25, y: 2}
+  m_Size: {x: 1, y: 1.6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -215,7 +215,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1.6}
-    newSize: {x: 1.25, y: 2}
+    newSize: {x: 1, y: 1.6}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -287,7 +287,7 @@ MonoBehaviour:
   speed: 400
   jumpSpeed: 200
   nextWaypointDistance: 1
-  jumpNodeHeightRequirement: 0.35
+  jumpNodeHeightRequirement: 0.6
   jumpModifier: 1
   followEnable: 1
   jumpEnable: 1
@@ -307,14 +307,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 397256027}
+  health: {fileID: 397256026}
   attackZone: {fileID: 8316640139074976245}
   animator: {fileID: 3517941325327093665}
   punchPoint: {fileID: 1396423863}
   kickPoint: {fileID: 61600435}
   radius: 0.2
+  hurt: 0
   players:
     serializedVersion: 2
     m_Bits: 128
+  timer: 0
 --- !u!1 &7750149010752329565
 GameObject:
   m_ObjectHideFlags: 0
