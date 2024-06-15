@@ -17,9 +17,40 @@ public class Teleport : MonoBehaviour
                 hit.gameObject.transform.position = new Vector3(-45.7f, -2.925796f, 0);
                 PlayerMovement.canTeleport = false;
             }
-            else if (gameObject.name == "Point1 (2/2)" && PlayerMovement.canTeleport == true)
+            if (gameObject.name == "Point1 (2/2)" && PlayerMovement.canTeleport == true)
             {
                 hit.gameObject.transform.position = new Vector3(-61.9f, -2.925796f, 0);
+                PlayerMovement.canTeleport = false;
+            }
+            if (gameObject.name == "Point2 (1/2)" && PlayerMovement.canTeleport == true)
+            {
+                hit.gameObject.transform.position = new Vector3(-304.1f, -2.925796f, 0);
+                PlayerMovement.canTeleport = false;
+            }
+            if (gameObject.name == "Point2 (2/2)" && PlayerMovement.canTeleport == true)
+            {
+                hit.gameObject.transform.position = new Vector3(-323.1f, -2.925796f, 0);
+                PlayerMovement.canTeleport = false;
+            }
+
+            if (gameObject.name == "Point3 (1/2)" && PlayerMovement.canTeleport == true)
+            {
+                hit.gameObject.transform.position = new Vector3(-173.39f, -2.925796f, 0);
+                PlayerMovement.canTeleport = false;
+            }
+            if (gameObject.name == "Point3 (2/2)" && PlayerMovement.canTeleport == true)
+            {
+                hit.gameObject.transform.position = new Vector3(-194.1f, -2.925796f, 0);
+                PlayerMovement.canTeleport = false;
+            }
+            if (gameObject.name == "Point4 (1/2)" && PlayerMovement.canTeleport == true)
+            {
+                hit.gameObject.transform.position = new Vector3(-434.74f, -2.925796f, 0);
+                PlayerMovement.canTeleport = false;
+            }
+            if (gameObject.name == "Point4 (2/2)" && PlayerMovement.canTeleport == true)
+            {
+                hit.gameObject.transform.position = new Vector3(-511.6f, -2.925796f, 0);
                 PlayerMovement.canTeleport = false;
             }
         }

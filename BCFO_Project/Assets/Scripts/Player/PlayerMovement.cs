@@ -122,6 +122,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown(TeleportActivate))
         {
             canTeleport = true;
+            Debug.Log("Try to TP");
         }
         if (Input.GetButtonUp(TeleportActivate))
         {
