@@ -161,17 +161,7 @@ public class PlayerMovement : MonoBehaviour
             moveSpeed = resetSpeed;
             animator.SetBool("IsRunning", false);
             isRunning = false;
-            //animator.SetBool("RunAttack3", false);
         }
-
-        //if (horizontalMovement < 0)
-        //{
-        //    spriteRenderer.flipX = true;
-        //}
-        //else if (horizontalMovement > 0)
-        //{
-        //    spriteRenderer.flipX = false;
-        //}
         if (horizontalMovement < 0)
         {
             transform.rotation = Quaternion.Euler(0f, 180f, 0f);

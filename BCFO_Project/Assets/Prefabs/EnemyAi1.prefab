@@ -287,12 +287,13 @@ MonoBehaviour:
   speed: 400
   jumpSpeed: 200
   nextWaypointDistance: 1
-  jumpNodeHeightRequirement: 0.6
+  jumpNodeHeightRequirement: 0.5
   jumpModifier: 1
   followEnable: 1
   jumpEnable: 1
   directionLookEnable: 1
   attackZone: {fileID: 8316640139074976245}
+  leftOrRight: none
   rb: {fileID: 3517941325327093693}
 --- !u!114 &397256028
 MonoBehaviour:
