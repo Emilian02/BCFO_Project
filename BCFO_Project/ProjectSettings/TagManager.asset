@@ -7,6 +7,11 @@ TagManager:
   - Platform
   - Enemy2
   - Enemy1
+  - Enemy
+  - Credits
+  - How To Play
+  - Settings
+  - Projectile
   layers:
   - Default
   - TransparentFX

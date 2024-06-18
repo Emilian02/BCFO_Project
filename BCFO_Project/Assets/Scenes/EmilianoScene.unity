@@ -1245,6 +1245,11 @@ BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 6329753773719449506, guid: 8a50eb545a64cd34f805db15200b0fdf, type: 3}
   m_PrefabInstance: {fileID: 6329753772708301208}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &2079450627 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6329753773719449507, guid: 8a50eb545a64cd34f805db15200b0fdf, type: 3}
+  m_PrefabInstance: {fileID: 6329753772708301208}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3517941325688715631
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1259,6 +1264,10 @@ PrefabInstance:
     - target: {fileID: 3517941325327093666, guid: ec9d6c22f3d3caa47aa26271f1f2ce65, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3517941325327093693, guid: ec9d6c22f3d3caa47aa26271f1f2ce65, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3517941325327093695, guid: ec9d6c22f3d3caa47aa26271f1f2ce65, type: 3}
       propertyPath: m_RootOrder
@@ -1337,6 +1346,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1524790215}
+    - target: {fileID: 6329753774495726339, guid: 8a50eb545a64cd34f805db15200b0fdf, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6329753774495726342, guid: 8a50eb545a64cd34f805db15200b0fdf, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -1424,6 +1437,20 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 6329753774495726339, guid: 8a50eb545a64cd34f805db15200b0fdf, type: 3}
   m_PrefabInstance: {fileID: 6329753772708301208}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6329753772708301217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6329753772708301209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eabb958dc9abfd242a10dd483cdf8bc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 72556097370549179, guid: 31c9c77024cdae24ea322c7966c22d9e, type: 3}
+  pPosition: {fileID: 2079450627}
 --- !u!1001 &7216060575116214217
 PrefabInstance:
   m_ObjectHideFlags: 0

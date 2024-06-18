@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class EnemyShooting : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private GameObject projectile;
+    [SerializeField] private Transform pPosition;
 
-    // Update is called once per frame
+    private float timer;
+
     void Update()
     {
-        
+        timer += Time.deltaTime;
+
+        if(timer > 2)
+        {
+            timer = 0;
+            Shoot();
+        }
+    }
+
+    void Shoot()
+    {
+        Instantiate(projectile, pPosition.position, Quaternion.identity);
     }
 }
