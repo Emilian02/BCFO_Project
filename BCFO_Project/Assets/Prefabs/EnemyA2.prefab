@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6329753773719449507}
   - component: {fileID: 6329753773719449506}
-  - component: {fileID: 6329753773719449505}
   m_Layer: 0
   m_Name: DetectionView
   m_TagString: Untagged
@@ -59,20 +58,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 8.037542, y: 4.935787}
   m_EdgeRadius: 0
---- !u!114 &6329753773719449505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6329753773719449504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d114f3f1e7b81a4b832025cd9f60b36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  col: {fileID: 6329753773719449506}
-  detectedCols: []
 --- !u!1 &6329753774495726337
 GameObject:
   m_ObjectHideFlags: 0
@@ -86,7 +71,6 @@ GameObject:
   - component: {fileID: 6329753774495726340}
   - component: {fileID: 6329753774495726339}
   - component: {fileID: 6329753774495726392}
-  - component: {fileID: 6329753774495726338}
   - component: {fileID: 6329753774495726343}
   m_Layer: 3
   m_Name: EnemyA2
@@ -250,35 +234,6 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
---- !u!114 &6329753774495726338
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6329753774495726337}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26e3ac0d2019cbb43bc399a035a8a4c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  activeDistance: 10
-  pathUpdateSeconds: 1
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 0
-  speed: 400
-  jumpSpeed: 0
-  nextWaypointDistance: 100
-  jumpNodeHeightRequirement: 0
-  jumpModifier: 0
-  followEnable: 1
-  jumpEnable: 0
-  directionLookEnable: 1
-  attackZone: {fileID: 6329753773719449505}
-  leftOrRight: left
-  rb: {fileID: 6329753774495726339}
 --- !u!95 &6329753774495726343
 Animator:
   serializedVersion: 4
