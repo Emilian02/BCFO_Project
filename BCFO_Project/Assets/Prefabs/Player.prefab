@@ -333,16 +333,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1631316802647205386}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a622b204caa9f1488bea2e812bc6803, type: 3}
+  m_Script: {fileID: 11500000, guid: af3cafbf678c25246b8f403e818aab2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 4
   resetSpeed: 4
   runSpeed: 9
-  slideSpeed: 7
-  rollSpeed: 4
+  slideSpeed: 5
+  rollSpeed: 5
   crouchSpeed: 2
-  jumpForce: 320
+  jumpForce: 300
   animator: {fileID: 1631316802647205488}
   horizontalInput: Horizontal
   verticalInput: Jump
@@ -363,20 +363,20 @@ MonoBehaviour:
   runAttackPoint3: {fileID: 1631316802508254320}
   dahAttackPoint1: {fileID: 1631316803821966802}
   dahAttackPoint2: {fileID: 1631316803861824099}
-  downAttackPoint1: {fileID: 1631316803771448978}
-  downAttackPoint2: {fileID: 1631316802222759126}
+  downAttackPoint1: {fileID: 1631316803400743242}
+  downAttackPoint2: {fileID: 1631316803463221899}
   downAttackPoint3: {fileID: 1631316803971823214}
   launchAttackPoint3: {fileID: 1631316802161490877}
   jumpAttackPoint1: {fileID: 1631316803400743242}
   jumpAttackPoint2: {fileID: 1631316803463221899}
   jumpAttackPoint3: {fileID: 1631316802800864276}
-  radius: 0.2
-  swordRadius: 0.7
+  radius: 0.3
+  swordRadius: 0.9
   enemies:
     serializedVersion: 2
     m_Bits: 8
   electricAudio: {fileID: 8300000, guid: 7bf3f6c70308e1f49aecd5bb351e2f62, type: 3}
-  stage0Audio: {fileID: 8300000, guid: d11d24f68a0fc73429b84ad972eace22, type: 3}
+  stage0Audio: {fileID: 8300000, guid: 4f1edaeae92f8e742b5c6ce3647302ac, type: 3}
 --- !u!114 &1631316802647205491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -386,10 +386,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1631316802647205386}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da092d7d947e3514fbe16f9bbe77695e, type: 3}
+  m_Script: {fileID: 11500000, guid: c8e221c36aaeefc44b35f258b4e73ea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMovement: {fileID: 1631316802647205490}
+  health: 100
+  currenthealth: 100
 --- !u!82 &1631316802647205493
 AudioSource:
   m_ObjectHideFlags: 0
@@ -495,11 +496,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1631316802647205386}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd2e00348fc59e048abaed2cecb42725, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b4139a9941dbf0428b1ab5ca15b0deb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
-  currenthealth: 50
+  playerMovement: {fileID: 1631316802647205490}
 --- !u!1 &1631316802772036846
 GameObject:
   m_ObjectHideFlags: 0
@@ -802,8 +802,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1631316803861824099}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.982, y: 0.216, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.98199844, y: 0.21600008, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
