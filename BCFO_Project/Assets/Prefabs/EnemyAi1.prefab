@@ -76,12 +76,12 @@ GameObject:
   - component: {fileID: 3517941325327093693}
   - component: {fileID: 3517941325327093694}
   - component: {fileID: 3517941325327093691}
-  - component: {fileID: 397256026}
-  - component: {fileID: 397256027}
-  - component: {fileID: 397256028}
+  - component: {fileID: 3517941325688715635}
+  - component: {fileID: 3517941325688715636}
+  - component: {fileID: 3517941325688715637}
   m_Layer: 3
   m_Name: EnemyAi1
-  m_TagString: Enemy
+  m_TagString: Enemy1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -150,7 +150,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1.6}
+  m_Size: {x: 1.4, y: 1.6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -215,7 +215,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1.6}
-    newSize: {x: 1, y: 1.6}
+    newSize: {x: 1.4, y: 1.6}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -251,7 +251,7 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
---- !u!114 &397256026
+--- !u!114 &3517941325688715635
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -260,22 +260,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3517941325327093666}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 672bb9f158da6dc4e98eafcfea5dc861, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 50
-  currenthealth: 50
-  isBoss: 0
---- !u!114 &397256027
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3517941325327093666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26e3ac0d2019cbb43bc399a035a8a4c3, type: 3}
+  m_Script: {fileID: 11500000, guid: 65d0dfe61c39db746b848ce137772649, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
@@ -287,15 +272,15 @@ MonoBehaviour:
   speed: 400
   jumpSpeed: 200
   nextWaypointDistance: 1
-  jumpNodeHeightRequirement: 0.5
+  jumpNodeHeightRequirement: 0.6
   jumpModifier: 1
   followEnable: 1
   jumpEnable: 1
   directionLookEnable: 1
-  attackZone: {fileID: 8316640139074976245}
-  leftOrRight: none
+  attackZone: {fileID: 3517941325688715638}
+  leftOrRight: left
   rb: {fileID: 3517941325327093693}
---- !u!114 &397256028
+--- !u!114 &3517941325688715636
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -304,12 +289,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 3517941325327093666}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e46a42277551f6c40a17240b4a211a04, type: 3}
+  m_Script: {fileID: 11500000, guid: f96b5437b75da8a45976f2d8c009e254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {fileID: 397256027}
-  health: {fileID: 397256026}
-  attackZone: {fileID: 8316640139074976245}
+  health: 25
+  currenthealth: 25
+--- !u!114 &3517941325688715637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3517941325327093666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d25fa6539e5ea64bbf6e478016759ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movement: {fileID: 3517941325688715635}
+  health: {fileID: 3517941325688715636}
+  attackZone: {fileID: 3517941325688715638}
   animator: {fileID: 3517941325327093665}
   punchPoint: {fileID: 1396423863}
   kickPoint: {fileID: 61600435}
@@ -318,7 +317,7 @@ MonoBehaviour:
   players:
     serializedVersion: 2
     m_Bits: 128
-  timer: 0
+  timer: 0.5
 --- !u!1 &7750149010752329565
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,7 +328,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4660878848405925355}
   - component: {fileID: 3659412790116210414}
-  - component: {fileID: 8316640139074976245}
+  - component: {fileID: 3517941325688715638}
   m_Layer: 8
   m_Name: DetectionView
   m_TagString: Untagged
@@ -378,7 +377,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.1742444, y: 1.5227332}
   m_EdgeRadius: 0
---- !u!114 &8316640139074976245
+--- !u!114 &3517941325688715638
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -387,7 +386,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7750149010752329565}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d114f3f1e7b81a4b832025cd9f60b36, type: 3}
+  m_Script: {fileID: 11500000, guid: 63b00d8b262f6eb46a11ac01072ee26a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   col: {fileID: 3659412790116210414}
