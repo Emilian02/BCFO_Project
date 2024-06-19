@@ -6629,6 +6629,10 @@ PrefabInstance:
       propertyPath: sceneName
       value: Level 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4261438026779166822, guid: d610124fb951408419e074e9e2d3a341, type: 3}
+      propertyPath: musicSounds.Array.data[3].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0b9aa1e3ac6012143a0c8353313afb96, type: 3}
     - target: {fileID: 4261438026779166823, guid: d610124fb951408419e074e9e2d3a341, type: 3}
       propertyPath: m_Name
       value: AudioManager
