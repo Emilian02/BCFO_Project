@@ -75,6 +75,7 @@ public class PlayerMovement : MonoBehaviour
         musicPlay = GetComponent<AudioSource>();
         musicPlay.PlayOneShot(stage0Audio, 0.1f);
         Physics2D.IgnoreLayerCollision(7, 3);
+        Physics2D.IgnoreLayerCollision(7, 10);
     }
     void StopMusic()
     {
