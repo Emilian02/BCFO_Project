@@ -177,6 +177,21 @@ public class PlayerMovement : MonoBehaviour
         if (isHurt == true)
         {
             animator.SetBool("gotHit", true);
+            animator.SetBool("Attack1", false);
+            animator.SetBool("Attack2", false);
+            animator.SetBool("Attack3", false);
+            animator.SetBool("JumpA1", false);
+            animator.SetBool("JumpA2", false);
+            animator.SetBool("JumpA3", false);
+            animator.SetBool("DAH", false);
+            animator.SetBool("WHF", false);
+            animator.SetBool("DownA1", false);
+            animator.SetBool("DownA2", false);
+            animator.SetBool("DownA3", false);
+            animator.SetBool("ForwardA1", false);
+            animator.SetBool("RunAttack3", false);
+            animator.SetBool("ForwardA3", false);
+            animator.SetBool("LAUNCH", false);
             canAttack = false;
             canAirAttack = false;
         }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
@@ -10,7 +11,7 @@ public class PlayerHealth : MonoBehaviour
     public Slider healthSlider;
     public Gradient gradient;
     public Image sliderFill;
-
+    private float timer = 4;
 
     void Start()
     {
@@ -31,6 +32,11 @@ public class PlayerHealth : MonoBehaviour
         if (health <= 0)
         {
             PlayerMovement.KO = true;
+            timer -= Time.deltaTime;
+            if (timer <= 0) {
+                SceneManager.LoadScene("GameOver");
+            }
+
             Debug.Log("L bozo");
         }
         SetHealth(currenthealth);
