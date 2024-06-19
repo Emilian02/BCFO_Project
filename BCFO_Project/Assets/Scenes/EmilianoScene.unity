@@ -1257,6 +1257,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 307557893180094445, guid: 487d38b870e4eef4b94c572b3856b83f, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 307557893180094447, guid: 487d38b870e4eef4b94c572b3856b83f, type: 3}
+      propertyPath: m_Size.x
+      value: 3.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 307557893180094447, guid: 487d38b870e4eef4b94c572b3856b83f, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.44
+      objectReference: {fileID: 0}
     - target: {fileID: 307557893749509353, guid: 487d38b870e4eef4b94c572b3856b83f, type: 3}
       propertyPath: m_Name
       value: EnemyAi3
@@ -1304,6 +1316,10 @@ PrefabInstance:
     - target: {fileID: 307557893749509354, guid: 487d38b870e4eef4b94c572b3856b83f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 307557893749509356, guid: 487d38b870e4eef4b94c572b3856b83f, type: 3}
+      propertyPath: rollSpeed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 307557893749509359, guid: 487d38b870e4eef4b94c572b3856b83f, type: 3}
       propertyPath: target
