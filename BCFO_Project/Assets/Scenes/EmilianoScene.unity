@@ -1319,7 +1319,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 307557893749509356, guid: 487d38b870e4eef4b94c572b3856b83f, type: 3}
       propertyPath: rollSpeed
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 307557893749509359, guid: 487d38b870e4eef4b94c572b3856b83f, type: 3}
       propertyPath: target

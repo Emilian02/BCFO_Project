@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class EnemyAi3 : MonoBehaviour
@@ -98,6 +99,13 @@ public class EnemyAi3 : MonoBehaviour
             attackTimer = 0.0f;
             attackstate = AttackStates.attacking;
         }
+
+        if(hurt)
+        {
+            InterruptAnimation();
+            Debug.Log("interrupted");
+            return;
+        }
     }
 
     private void Attack()
@@ -115,6 +123,7 @@ public class EnemyAi3 : MonoBehaviour
     private void FinishAttack()
     {
         attackTimer += Time.deltaTime;
+
         if( attackTimer >= 1f)
         {
             animator.SetBool("hasTarget", false);
@@ -124,8 +133,28 @@ public class EnemyAi3 : MonoBehaviour
             movement.enabled = true;
             hasTarget = false;
         }
+
+        if (hurt)
+        {
+            InterruptAnimation();
+            Debug.Log("interrupted");
+            return;
+        }
     }
 
+    private void InterruptAnimation()
+    {
+        if (attackstate == AttackStates.preapring)
+        {
+            attackTimer = 0.0f;
+            hasTarget = false;
+        }
+        if (attackstate == AttackStates.ending)
+        {
+            attackTimer = 1f;
+            hasTarget = false;
+        }
+    }
 
     private void AwayAttackZone()
     {
