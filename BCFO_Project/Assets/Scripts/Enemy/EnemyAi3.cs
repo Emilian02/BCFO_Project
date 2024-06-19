@@ -9,12 +9,26 @@ public class EnemyAi3 : MonoBehaviour
     [SerializeField] private EnemyHealth health;
     [SerializeField] private DetectionZone attackZone;
     [SerializeField] private Animator animator;
+    [Header("Float")]
+    [SerializeField] private float rollSpeed;
 
+    Rigidbody2D rb;
+    bool hasTarget = false;
+    float attackTimer = 0.0f;
     public bool hurt = false;
     public float timer = 0.0f;
+
+    private enum AttackStates
+    { 
+        preapring, attacking, ending
+    };
+
+    AttackStates attackstate;
+
     void Start()
     {
         Physics2D.IgnoreLayerCollision(3, 3);
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
@@ -36,7 +50,23 @@ public class EnemyAi3 : MonoBehaviour
         {
             if (attackZone.detectedCols.Count > 0)
             {
-                
+                hasTarget = true;
+            }
+
+            if (hasTarget)
+            {
+                if (attackstate == AttackStates.preapring)
+                {
+                    StartAttack();
+                }
+                if (attackstate == AttackStates.attacking)
+                {
+                    Attack();
+                }
+                if (attackstate == AttackStates.ending)
+                {
+                    FinishAttack();
+                }
             }
             else
             {
@@ -54,6 +84,48 @@ public class EnemyAi3 : MonoBehaviour
     {
         animator.SetBool("isWalking", true);
     }
+
+    private void StartAttack()
+    {
+        animator.SetBool("hasTarget", true);
+        animator.SetBool("preparing", true);
+        movement.enabled = false;
+        attackTimer += Time.deltaTime;
+
+        if (attackTimer >= 1.5f)
+        {
+            animator.SetBool("preparing", false);
+            attackTimer = 0.0f;
+            attackstate = AttackStates.attacking;
+        }
+    }
+
+    private void Attack()
+    {
+        attackTimer += Time.deltaTime;
+        if (attackTimer >= 0.5f)
+        {
+            rb.AddForce(transform.right * rollSpeed, ForceMode2D.Impulse);
+            animator.SetBool("finishAttack", true);
+            attackTimer = 0.0f;
+            attackstate = AttackStates.ending;
+        }
+    }
+
+    private void FinishAttack()
+    {
+        attackTimer += Time.deltaTime;
+        if( attackTimer >= 1f)
+        {
+            animator.SetBool("hasTarget", false);
+            attackTimer = 0.0f;
+            animator.SetBool("finishAttack", false);
+            attackstate = AttackStates.preapring;
+            movement.enabled = true;
+            hasTarget = false;
+        }
+    }
+
 
     private void AwayAttackZone()
     {
