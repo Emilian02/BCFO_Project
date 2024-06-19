@@ -2299,8 +2299,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "-Bear: The Kooky Goopy Groupie(itch.io)\n-Player Sprite: \n-Boss Sprite:
-    \n-Eagle Sprite:"
+  m_text: "-Bear Sprite: The Kooky Goopy Groupie(itch.io)\n-Player Sprite: rvros(itch.io)\n-Boss
+    Sprite: Ethan(Ethan)\n-Eagle Sprite: \n-Level 1 Tiles: Anokolisa(itch.io)\n-Level
+    2 Art: SNK(Fatal Fury 2)\n-Level 3 Tiles: Anokolisa(itch.io)\n-Level 4 Tiles:
+    Trixie(itch.io)\n-Level 4 Art: Konami(Castlevania: Aria of Sorrow)"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2906,7 +2908,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2009018026
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3077,7 +3079,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 257305973833639361, guid: 26a6645aaeb03414187492235afa7129, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 257305973875506089, guid: 26a6645aaeb03414187492235afa7129, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -3085,7 +3087,7 @@ PrefabInstance:
       objectReference: {fileID: 1958591501}
     - target: {fileID: 257305973958524413, guid: 26a6645aaeb03414187492235afa7129, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 257305974198154297, guid: 26a6645aaeb03414187492235afa7129, type: 3}
       propertyPath: m_Pivot.x
@@ -3175,6 +3177,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Settings
       objectReference: {fileID: 0}
+    - target: {fileID: 257305974198154302, guid: 26a6645aaeb03414187492235afa7129, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 257305974451194689, guid: 26a6645aaeb03414187492235afa7129, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -3185,19 +3191,19 @@ PrefabInstance:
       objectReference: {fileID: 1958591501}
     - target: {fileID: 257305974816258835, guid: 26a6645aaeb03414187492235afa7129, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 257305975148141124, guid: 26a6645aaeb03414187492235afa7129, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 257305975436120884, guid: 26a6645aaeb03414187492235afa7129, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 257305975740243376, guid: 26a6645aaeb03414187492235afa7129, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5217449091921538086, guid: 26a6645aaeb03414187492235afa7129, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
