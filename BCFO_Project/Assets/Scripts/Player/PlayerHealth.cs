@@ -18,7 +18,7 @@ public class PlayerHealth : MonoBehaviour
         sliderFill.color = gradient.Evaluate(1f);
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         if (currenthealth < health)

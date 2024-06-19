@@ -1,30 +1,83 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;using UnityEngine.UI;
+using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] public EnemyHealth enemyHp;
-    [SerializeField] private PlayerHealth playerHp;
+    private LevelManager levelManager;
+    private int level = 0;
 
-    private bool levelCompleted;
-
-
-
-
-    void Update()
+    private void Start()
     {
-        if (enemyHp.health == 0)
-        {
-            levelCompleted = true;
-            SceneManager.LoadScene("Map");
-        }
-        else if (playerHp.health == 0)
-        {
-            SceneManager.LoadScene("Lose 1");
-        }
-
+        levelManager = GetComponent<LevelManager>();
+        InitializeLevel();
     }
 
+    private void InitializeLevel()
+    {
+        switch (level)
+        {
+            case 0:
+                level++;
+                GameObject.Find("Level 1").SetActive(true);
+                GameObject.Find("Level 2").SetActive(false);
+                GameObject.Find("Level 3").SetActive(false);
+                GameObject.Find("Boss Level").SetActive(false);
+                break;
+            case 1:
+                if (levelManager.levelComplete) 
+                {
+                    level++;
+                    GameObject.Find("Level 1").SetActive(false);
+                    GameObject.Find("Level 2").SetActive(true);
+                    GameObject.Find("Level 3").SetActive(false);
+                    GameObject.Find("Boss Level").SetActive(false);
+                }
+                break;
+            case 2:
+                if (levelManager.levelComplete) 
+                {
+                    level++;
+                    GameObject.Find("Level 1").SetActive(false);
+                    GameObject.Find("Level 2").SetActive(false);
+                    GameObject.Find("Level 3").SetActive(true);
+                    GameObject.Find("Boss Level").SetActive(false);
+                }
+                break;
+            case 3:
+                if (levelManager.levelComplete) 
+                {
+                    level++;
+                    GameObject.Find("Level 1").SetActive(false);
+                    GameObject.Find("Level 2").SetActive(false);
+                    GameObject.Find("Level 3").SetActive(false);
+                    GameObject.Find("Boss Level").SetActive(true);
+                }
+                break;
+            default:
+                Debug.Log("ERROR");
+                break;
+        }
+    }
+
+    public void OnClicked(Button button)
+    {
+        switch (button.name)
+        {
+            case "Level 1 Button":
+                SceneManager.LoadScene("Level 1");
+                break;
+            case "Level 2 Button":
+                SceneManager.LoadScene("Level 2");
+                break;
+            case "Level 3 Button":
+                SceneManager.LoadScene("Level 3");
+                break;
+            case "Boss Level Button":
+                SceneManager.LoadScene("Boss Level");
+                break;
+        }
+    }
 }
