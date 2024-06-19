@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 public class WinCollider : MonoBehaviour
 {
     
-    public void OnCollission(Collider2D collider)
+    public void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.tag == "player")
+        if (collider.gameObject.tag == "Player")
         {
             SceneManager.LoadScene("Map");
         }
