@@ -8,55 +8,51 @@ public class GameManager : MonoBehaviour
 {
     
     private int level = 0;
-    private Dictionary<string, GameObject> levels;
 
     private void Start()
     {
-        InitializeLevels();
+        
         InitializeLevel();
-    }
-
-    private void InitializeLevels()
-    {
-        levels = new Dictionary<string, GameObject>
-        {
-            { "Level 1", GameObject.Find("Level 1") },
-            { "Level 2", GameObject.Find("Level 2") },
-            { "Level 3", GameObject.Find("Level 3") },
-            { "Boss Level", GameObject.Find("Boss Level") }
-        };
     }
 
     private void InitializeLevel()
     {
-        foreach (var level in levels.Values)
-        {
-            level.SetActive(false);
-        }
-
-        switch (this.level)
+        switch (level)
         {
             case 0:
-                levels["Level 1"].SetActive(true);
+                level++;
+                GameObject.Find("Level 1").SetActive(true);
+                GameObject.Find("Level 2").SetActive(false);
+                GameObject.Find("Level 3").SetActive(false);
+                GameObject.Find("Boss Level").SetActive(false);
                 break;
             case 1:
-                    this.level++;
-                    levels["Level 2"].SetActive(true);
-                
+                {
+                    level++;
+                    GameObject.Find("Level 1").SetActive(false);
+                    GameObject.Find("Level 2").SetActive(true);
+                    GameObject.Find("Level 3").SetActive(false);
+                    GameObject.Find("Boss Level").SetActive(false);
+                }
                 break;
             case 2:
-                
-                    this.level++;
-                    levels["Level 3"].SetActive(true);
+                    level++;
+                    GameObject.Find("Level 1").SetActive(false);
+                    GameObject.Find("Level 2").SetActive(false);
+                    GameObject.Find("Level 3").SetActive(true);
+                    GameObject.Find("Boss Level").SetActive(false);
                 
                 break;
             case 3:
-                    this.level++;
-                    levels["Boss Level"].SetActive(true);
+                    level++;
+                    GameObject.Find("Level 1").SetActive(false);
+                    GameObject.Find("Level 2").SetActive(false);
+                    GameObject.Find("Level 3").SetActive(false);
+                    GameObject.Find("Boss Level").SetActive(true);
                 
                 break;
             default:
-                Debug.LogError("Invalid level index");
+                Debug.Log("ERROR");
                 break;
         }
     }
@@ -76,9 +72,6 @@ public class GameManager : MonoBehaviour
                 break;
             case "Boss Level Button":
                 SceneManager.LoadScene("Boss Level");
-                break;
-            default:
-                Debug.LogWarning("Unknown button name: " + button.name);
                 break;
         }
     }
