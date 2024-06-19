@@ -64,6 +64,7 @@ public class PlayerMovement : MonoBehaviour
     private bool canAirAttack = true;
     private bool isCrouching = false;
     private bool isRunning = false;
+    public static bool isHurt = false;
     public static bool canTeleport = false;
     public static bool isBossFight = false;
 
@@ -170,6 +171,11 @@ public class PlayerMovement : MonoBehaviour
         else if (horizontalMovement > 0)
         {
             transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        }
+
+        if (isHurt == true)
+        {
+            animator.SetBool("gotHit", true);
         }
     }
 
@@ -779,6 +785,13 @@ public class PlayerMovement : MonoBehaviour
     {
         animator.SetBool("DODGE", false);
         slide = false;
+        canAttack = true;
+    }
+    public void endHurt()
+    {
+        animator.SetBool("gotHit", false);
+        slide = false;
+        isHurt = false;
         canAttack = true;
     }
     private void OnDrawGizmos()
