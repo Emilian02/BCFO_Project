@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 115957969}
   - component: {fileID: 115957970}
   - component: {fileID: 115957971}
-  m_Layer: 10
+  m_Layer: 3
   m_Name: Boss?
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -245,7 +245,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0000009536743, y: -1.237093}
+  m_Offset: {x: -0.0000009536743, y: 0.010282993}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -256,7 +256,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.9482632, y: 5.913315}
+  m_Size: {x: 3.9482632, y: 3.418563}
   m_EdgeRadius: 0
 --- !u!50 &115957970
 Rigidbody2D:
@@ -291,39 +291,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f96b5437b75da8a45976f2d8c009e254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  health: 10
   currenthealth: 0
-  healthSlider: {fileID: 0}
-  gradient:
-    serializedVersion: 2
-    key0: {r: 1, g: 1, b: 1, a: 1}
-    key1: {r: 1, g: 1, b: 1, a: 1}
-    key2: {r: 0, g: 0, b: 0, a: 0}
-    key3: {r: 0, g: 0, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
-    key6: {r: 0, g: 0, b: 0, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 65535
-    ctime2: 0
-    ctime3: 0
-    ctime4: 0
-    ctime5: 0
-    ctime6: 0
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 0
-    m_NumColorKeys: 2
-    m_NumAlphaKeys: 2
-  sliderFill: {fileID: 0}
+  boss: 1
 --- !u!1 &201268899
 GameObject:
   m_ObjectHideFlags: 0
@@ -25389,7 +25359,7 @@ GameObject:
   - component: {fileID: 2087634676}
   - component: {fileID: 2087634677}
   - component: {fileID: 2087634678}
-  m_Layer: 10
+  m_Layer: 3
   m_Name: Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
