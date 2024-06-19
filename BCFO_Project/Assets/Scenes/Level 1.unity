@@ -220,11 +220,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3517941325327093695, guid: ec9d6c22f3d3caa47aa26271f1f2ce65, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.42
+      value: 20.48
       objectReference: {fileID: 0}
     - target: {fileID: 3517941325327093695, guid: ec9d6c22f3d3caa47aa26271f1f2ce65, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.02
+      value: 1.05
       objectReference: {fileID: 0}
     - target: {fileID: 3517941325327093695, guid: ec9d6c22f3d3caa47aa26271f1f2ce65, type: 3}
       propertyPath: m_LocalPosition.z
@@ -318,6 +318,10 @@ PrefabInstance:
     - target: {fileID: 1631316802647205388, guid: a763aece6a5f5ca4da4046524cd0fc43, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1631316802647205390, guid: a763aece6a5f5ca4da4046524cd0fc43, type: 3}
+      propertyPath: m_LinearDrag
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1631316802647205491, guid: a763aece6a5f5ca4da4046524cd0fc43, type: 3}
       propertyPath: sliderFill
