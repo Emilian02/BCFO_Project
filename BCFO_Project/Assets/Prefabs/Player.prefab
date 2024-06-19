@@ -374,8 +374,6 @@ MonoBehaviour:
   enemies:
     serializedVersion: 2
     m_Bits: 8
-  electricAudio: {fileID: 8300000, guid: 7bf3f6c70308e1f49aecd5bb351e2f62, type: 3}
-  stage0Audio: {fileID: 8300000, guid: f56346638e97b544bbe0f149b1a4aaba, type: 3}
 --- !u!114 &1631316802647205491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -389,7 +387,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  currenthealth: 100
+  currentHealth: 100
   healthSlider: {fileID: 0}
   gradient:
     serializedVersion: 2

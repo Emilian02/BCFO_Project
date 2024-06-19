@@ -35,22 +35,24 @@ public class LevelManager : MonoBehaviour
                 SceneManager.LoadScene("Final");
             }
         }
-
-        if (sceneName == "GameOver L1" && Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            SceneManager.LoadScene("Level 1");
-        }
-        else if (sceneName == "GameOver L2" && Input.GetKeyDown(KeyCode.Space))
-        {
-            SceneManager.LoadScene("Level 2");
-        }
-        else if (sceneName == "GameOver L3" && Input.GetKeyDown(KeyCode.Space))
-        {
-            SceneManager.LoadScene("Level 3");
-        }
-        else if (sceneName == "GameOver B" && Input.GetKeyDown(KeyCode.Space))
-        {
-            SceneManager.LoadScene("Boss Level");
+            if (sceneName == "GameOver L1")
+            {
+                SceneManager.LoadScene("Level 1");
+            }
+            else if (sceneName == "GameOver L2")
+            {
+                SceneManager.LoadScene("Level 2");
+            }
+            else if (sceneName == "GameOver L3")
+            {
+                SceneManager.LoadScene("Level 3");
+            }
+            else if (sceneName == "GameOver B")
+            {
+                SceneManager.LoadScene("Boss Level");
+            }
         }
     }
 

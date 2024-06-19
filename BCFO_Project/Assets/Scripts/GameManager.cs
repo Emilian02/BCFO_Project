@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        
+        level = 0;
         InitializeLevel();
     }
     private void Update()
@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     {
         if (level == 0)
         {
-            level++;
+            
             level1.SetActive(true);
             level2.SetActive(false);
             level3.SetActive(false);
@@ -68,16 +68,16 @@ public class GameManager : MonoBehaviour
         switch (button.name)
         {
             case "Level 1 Button":
-                level++;
                 SceneManager.LoadScene("Level 1");
+                level++;
                 break;
             case "Level 2 Button":
-                level++;
                 SceneManager.LoadScene("Level 2");
+                level++;
                 break;
             case "Level 3 Button":
-                level++;
                 SceneManager.LoadScene("Level 3");
+                level++;
                 break;
             case "Boss Level Button":
                 SceneManager.LoadScene("Boss Level");

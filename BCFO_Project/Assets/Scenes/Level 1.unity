@@ -252,6 +252,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 0755d7fb3f1748a4598111cf5da9bf1f, type: 3}
     - target: {fileID: 1631316802647205491, guid: a763aece6a5f5ca4da4046524cd0fc43, type: 3}
+      propertyPath: maxHealth
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1631316802647205491, guid: a763aece6a5f5ca4da4046524cd0fc43, type: 3}
       propertyPath: sliderFill
       value: 
       objectReference: {fileID: 1814351259}
@@ -4297,7 +4301,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 1814351258}
   m_HandleRect: {fileID: 0}

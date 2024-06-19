@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour
 {
     public float health;
-    public float currentHealth;
+    public float maxHealth;
     public Slider healthSlider;
     public Gradient gradient;
     public Image sliderFill;
@@ -15,18 +15,19 @@ public class PlayerHealth : MonoBehaviour
 
     void Start()
     {
-        currentHealth = health;
-        healthSlider.maxValue = health;
+        maxHealth = health;
+        healthSlider.maxValue = maxHealth;
         sliderFill.color = gradient.Evaluate(1f);
     }
 
 
     void Update()
     {
-        if (currentHealth < health)
+        SetHealth(health);
+        if (maxHealth < health)
         {
-            currentHealth = health;
-            
+            maxHealth = health;
+            SetHealth(maxHealth);
 
         }
         if (health <= 0)
@@ -36,10 +37,10 @@ public class PlayerHealth : MonoBehaviour
             if (timer <= 0) {
                 SceneManager.LoadScene("GameOver L1");
             }
-
+            
             Debug.Log("L bozo");
         }
-        SetHealth(currentHealth);
+        
     }
 
     public void SetHealth(float health)
