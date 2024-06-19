@@ -27,7 +27,7 @@ public class BulletScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<PlayerHealth>().health -= 1;
+            collision.gameObject.GetComponent<PlayerHealth>().health -= 2;
         }
 
         Destroy(this.gameObject);
