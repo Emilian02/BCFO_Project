@@ -34,7 +34,7 @@ public class PlayerHealth : MonoBehaviour
             PlayerMovement.KO = true;
             timer -= Time.deltaTime;
             if (timer <= 0) {
-                SceneManager.LoadScene("GameOver");
+                SceneManager.LoadScene("GameOver L1");
             }
 
             Debug.Log("L bozo");
