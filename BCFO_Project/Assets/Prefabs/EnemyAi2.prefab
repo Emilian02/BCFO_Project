@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6329753773719449507}
   - component: {fileID: 6329753773719449506}
+  - component: {fileID: 2079450625}
   m_Layer: 0
   m_Name: DetectionView
   m_TagString: Untagged
@@ -45,7 +46,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.12687683, y: -1.3335085}
+  m_Offset: {x: -0.12687683, y: -0.7113234}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -56,8 +57,22 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 8.037542, y: 4.935787}
+  m_Size: {x: 8.037542, y: 3.6914175}
   m_EdgeRadius: 0
+--- !u!114 &2079450625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6329753773719449504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63b00d8b262f6eb46a11ac01072ee26a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  col: {fileID: 6329753773719449506}
+  detectedCols: []
 --- !u!1 &6329753774495726337
 GameObject:
   m_ObjectHideFlags: 0
@@ -72,13 +87,17 @@ GameObject:
   - component: {fileID: 6329753774495726339}
   - component: {fileID: 6329753774495726392}
   - component: {fileID: 6329753774495726343}
+  - component: {fileID: 6329753772708301210}
+  - component: {fileID: 6329753772708301217}
+  - component: {fileID: 6329753772708301218}
+  - component: {fileID: 6329753772708301219}
   m_Layer: 3
   m_Name: EnemyAi2
   m_TagString: Enemy2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6329753774495726342
 Transform:
   m_ObjectHideFlags: 0
@@ -202,7 +221,7 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 0a16ade147d47bd4bbfb38a2f97a83fc, type: 2}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
@@ -254,3 +273,110 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6329753772708301210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6329753774495726337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65d0dfe61c39db746b848ce137772649, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  activeDistance: 10
+  pathUpdateSeconds: 0.5
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  speed: 200
+  jumpSpeed: 0
+  nextWaypointDistance: 3
+  jumpNodeHeightRequirement: 0
+  jumpModifier: 0
+  followEnable: 1
+  jumpEnable: 0
+  directionLookEnable: 1
+  attackZone: {fileID: 2079450625}
+  leftOrRight: left
+  rb: {fileID: 6329753774495726339}
+--- !u!114 &6329753772708301217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6329753774495726337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eabb958dc9abfd242a10dd483cdf8bc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 72556097370549179, guid: 31c9c77024cdae24ea322c7966c22d9e, type: 3}
+  pPosition: {fileID: 6329753773719449507}
+  attackZone: {fileID: 2079450625}
+  timer: 0
+--- !u!114 &6329753772708301218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6329753774495726337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f96b5437b75da8a45976f2d8c009e254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 25
+  currenthealth: 25
+  healthSlider: {fileID: 0}
+  gradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+  sliderFill: {fileID: 0}
+--- !u!114 &6329753772708301219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6329753774495726337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 001334fee3cda154093fb669728119f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movement: {fileID: 6329753772708301210}
+  health: {fileID: 6329753772708301218}
+  projectile: {fileID: 6329753772708301217}
+  animator: {fileID: 6329753774495726343}
+  hurt: 0
