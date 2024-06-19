@@ -53,12 +53,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public float swordRadius;
     public LayerMask enemies;
 
-    [Header("AUDIO")]
-    public AudioClip electricAudio;
-    public AudioClip stage0Audio;
-    AudioSource audioPlay;
-    AudioSource musicPlay;
-
     public static bool slide = false;
     private bool canAttack = true;
     private bool canAirAttack = true;
@@ -71,15 +65,9 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        audioPlay = GetComponent<AudioSource>();
-        musicPlay = GetComponent<AudioSource>();
-        musicPlay.PlayOneShot(stage0Audio, 0.1f);
+        
         Physics2D.IgnoreLayerCollision(7, 3);
         Physics2D.IgnoreLayerCollision(7, 10);
-    }
-    void StopMusic()
-    {
-        musicPlay.Stop();
     }
     void Update()
     {
@@ -90,7 +78,6 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (startCutscene.isCutsceneOn || isBossFight == true)
         {
-            StopMusic();
             animator.SetBool("IsRunning", false);
             animator.SetBool("IsCrouching", false);
         }
@@ -254,7 +241,6 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("DAH", true);
             Debug.Log("DAH");
-            audioPlay.PlayOneShot(electricAudio, 1.2f);
             canAttack = false;
         }
         else if (Input.GetButtonDown(Attack1) && (Input.GetButton(horizontalInput) && Input.GetButton(downInput)) && canAttack == true && canJump == true)
