@@ -12,6 +12,7 @@ TagManager:
   - How To Play
   - Settings
   - Projectile
+  - Enemy3
   layers:
   - Default
   - TransparentFX
