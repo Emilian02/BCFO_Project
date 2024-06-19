@@ -476,7 +476,7 @@ GameObject:
   - component: {fileID: 218842742}
   - component: {fileID: 218842743}
   m_Layer: 0
-  m_Name: Spawner3
+  m_Name: Spawner2
   m_TagString: LeftSide
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -495,7 +495,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &218842743
 BoxCollider2D:
@@ -7251,64 +7251,6 @@ PrefabInstance:
       objectReference: {fileID: 311202877}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec9d6c22f3d3caa47aa26271f1f2ce65, type: 3}
---- !u!1 &717091059
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 717091061}
-  - component: {fileID: 717091062}
-  m_Layer: 0
-  m_Name: Spawner2
-  m_TagString: LeftSide
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &717091061
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 717091059}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 21.18, y: -0.82, z: 0.70767075}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &717091062
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 717091059}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1 &729949048
 GameObject:
   m_ObjectHideFlags: 0
@@ -24972,11 +24914,9 @@ MonoBehaviour:
   cutscene: {fileID: 1923551724}
   player: {fileID: 311202877}
   enemy1: {fileID: 3517941325327093666, guid: ec9d6c22f3d3caa47aa26271f1f2ce65, type: 3}
-  enemy2: {fileID: 6329753774495726337, guid: 8a50eb545a64cd34f805db15200b0fdf, type: 3}
-  enemy3: {fileID: 307557893749509353, guid: 487d38b870e4eef4b94c572b3856b83f, type: 3}
+  enemy2: {fileID: 307557893749509353, guid: 487d38b870e4eef4b94c572b3856b83f, type: 3}
   spawner1: {fileID: 729949050}
-  spawner2: {fileID: 717091061}
-  spawner3: {fileID: 218842742}
+  spawner2: {fileID: 218842742}
 --- !u!1 &1753839347
 GameObject:
   m_ObjectHideFlags: 0

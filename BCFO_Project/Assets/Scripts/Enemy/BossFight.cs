@@ -15,11 +15,9 @@ public class BossFight : MonoBehaviour
     [Header("Enemies")]
     [SerializeField] GameObject enemy1;
     [SerializeField] GameObject enemy2;
-    [SerializeField] GameObject enemy3;
     [Header("Spawner")]
     [SerializeField] Transform spawner1;
     [SerializeField] Transform spawner2;
-    [SerializeField] Transform spawner3;
 
     private float timer;
     private int random;
@@ -37,7 +35,7 @@ public class BossFight : MonoBehaviour
 
             if (timer >= 5)
             {
-                random = UnityEngine.Random.Range(1, 4);
+                random = UnityEngine.Random.Range(1, 3);
                 if (random == 1)
                 {
                     Enemy1();
@@ -46,11 +44,6 @@ public class BossFight : MonoBehaviour
                 {
                     Enemy2();
                 }
-                else
-                {
-                    Enemy3();
-                }
-                timer = 0;
             }
         }
     }
@@ -63,11 +56,6 @@ public class BossFight : MonoBehaviour
     void Enemy2()
     {
         GameObject enemy = Instantiate(enemy2, spawner2.position, Quaternion.identity);
-        enemy.GetComponent<EnemyMovement>().target = player;
-    }
-    void Enemy3()
-    {
-        GameObject enemy = Instantiate(enemy3, spawner3.position, Quaternion.identity);
         enemy.GetComponent<EnemyMovement>().target = player;
     }
 
