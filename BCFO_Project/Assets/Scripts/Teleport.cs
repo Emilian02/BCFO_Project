@@ -53,6 +53,18 @@ public class Teleport : MonoBehaviour
                 hit.gameObject.transform.position = new Vector3(-511.6f, -2.925796f, 0);
                 PlayerMovement.canTeleport = false;
             }
+
+
+            if (gameObject.name == "Point1 (1/2) L1" && PlayerMovement.canTeleport == true)
+            {
+                hit.gameObject.transform.position = new Vector3(131.3f, -1.88f, 0);
+                PlayerMovement.canTeleport = false;
+            }
+            if (gameObject.name == "Point1 (2/2) L2" && PlayerMovement.canTeleport == true)
+            {
+                hit.gameObject.transform.position = new Vector3(81.94f, 1.2f, 0);
+                PlayerMovement.canTeleport = false;
+            }
         }
     }
 }
