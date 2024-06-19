@@ -29,6 +29,7 @@ public class PlayerHealth : MonoBehaviour
         }
         if (health <= 0)
         {
+            PlayerMovement.KO = true;
             Debug.Log("L bozo");
         }
         SetHealth(currenthealth);

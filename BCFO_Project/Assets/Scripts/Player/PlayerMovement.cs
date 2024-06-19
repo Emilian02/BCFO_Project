@@ -65,6 +65,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isCrouching = false;
     private bool isRunning = false;
     public static bool isHurt = false;
+    public static bool KO = false;
     public static bool canTeleport = false;
     public static bool isBossFight = false;
 
@@ -176,6 +177,12 @@ public class PlayerMovement : MonoBehaviour
         if (isHurt == true)
         {
             animator.SetBool("gotHit", true);
+            canAttack = false;
+            canAirAttack = false;
+        }
+        if (KO == true)
+        {
+            animator.SetBool("KnockOut", true);
             canAttack = false;
             canAirAttack = false;
         }

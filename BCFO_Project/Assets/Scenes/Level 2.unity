@@ -5388,10 +5388,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1631316802647205490, guid: a763aece6a5f5ca4da4046524cd0fc43, type: 3}
-      propertyPath: stage0Audio
-      value: 
-      objectReference: {fileID: 8300000, guid: f56346638e97b544bbe0f149b1a4aaba, type: 3}
     - target: {fileID: 1631316802647205491, guid: a763aece6a5f5ca4da4046524cd0fc43, type: 3}
       propertyPath: sliderFill
       value: 
@@ -5400,8 +5396,7 @@ PrefabInstance:
       propertyPath: healthSlider
       value: 
       objectReference: {fileID: 681234967}
-    m_RemovedComponents:
-    - {fileID: 1631316802647205493, guid: a763aece6a5f5ca4da4046524cd0fc43, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a763aece6a5f5ca4da4046524cd0fc43, type: 3}
 --- !u!1 &900811339
 GameObject:
