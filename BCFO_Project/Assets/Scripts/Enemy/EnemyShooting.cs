@@ -7,7 +7,7 @@ public class EnemyShooting : MonoBehaviour
     [SerializeField] private GameObject projectile;
     [SerializeField] private Transform pPosition;
 
-    private float timer;
+    public float timer;
 
     void Update()
     {

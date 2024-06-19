@@ -1432,6 +1432,11 @@ MonoBehaviour:
   attackZone: {fileID: 2079450625}
   leftOrRight: left
   rb: {fileID: 6329753772708301213}
+--- !u!95 &6329753772708301211 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6329753774495726343, guid: 8a50eb545a64cd34f805db15200b0fdf, type: 3}
+  m_PrefabInstance: {fileID: 6329753772708301208}
+  m_PrefabAsset: {fileID: 0}
 --- !u!50 &6329753772708301213 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 6329753774495726339, guid: 8a50eb545a64cd34f805db15200b0fdf, type: 3}
@@ -1451,6 +1456,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 72556097370549179, guid: 31c9c77024cdae24ea322c7966c22d9e, type: 3}
   pPosition: {fileID: 2079450627}
+  timer: 0
+--- !u!114 &6329753772708301218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6329753772708301209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f96b5437b75da8a45976f2d8c009e254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 25
+  currenthealth: 25
+--- !u!114 &6329753772708301219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6329753772708301209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 001334fee3cda154093fb669728119f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movement: {fileID: 6329753772708301210}
+  health: {fileID: 6329753772708301218}
+  projectile: {fileID: 6329753772708301217}
+  animator: {fileID: 6329753772708301211}
+  hurt: 0
 --- !u!1001 &7216060575116214217
 PrefabInstance:
   m_ObjectHideFlags: 0

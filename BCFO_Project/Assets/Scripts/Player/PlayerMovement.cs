@@ -316,6 +316,10 @@ public class PlayerMovement : MonoBehaviour
                     enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
                     enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
                 }
+                if(enemyGameobject.tag == "Enemy2")
+                {
+                    enemyGameobject.GetComponent<EnemyA2>().hurt = true;
+                }
             }
         }
     }
@@ -333,6 +337,10 @@ public class PlayerMovement : MonoBehaviour
                 {
                     enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
                     enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+                }
+                if (enemyGameobject.tag == "Enemy2")
+                {
+                    enemyGameobject.GetComponent<EnemyA2>().hurt = true;
                 }
             }
         }
@@ -352,6 +360,10 @@ public class PlayerMovement : MonoBehaviour
                     enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
                     enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
                 }
+                if (enemyGameobject.tag == "Enemy2")
+                {
+                    enemyGameobject.GetComponent<EnemyA2>().hurt = true;
+                }
             }
         }
     }
@@ -369,6 +381,10 @@ public class PlayerMovement : MonoBehaviour
                 {
                     enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
                     enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+                }
+                if (enemyGameobject.tag == "Enemy2")
+                {
+                    enemyGameobject.GetComponent<EnemyA2>().hurt = true;
                 }
             }
         }
@@ -388,6 +404,10 @@ public class PlayerMovement : MonoBehaviour
                     enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
                     enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
                 }
+                if (enemyGameobject.tag == "Enemy2")
+                {
+                    enemyGameobject.GetComponent<EnemyA2>().hurt = true;
+                }
             }
         }
     }
@@ -405,6 +425,10 @@ public class PlayerMovement : MonoBehaviour
                 {
                     enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
                     enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+                }
+                if (enemyGameobject.tag == "Enemy2")
+                {
+                    enemyGameobject.GetComponent<EnemyA2>().hurt = true;
                 }
             }
         }
@@ -424,6 +448,10 @@ public class PlayerMovement : MonoBehaviour
                     enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
                     enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
                 }
+                if (enemyGameobject.tag == "Enemy2")
+                {
+                    enemyGameobject.GetComponent<EnemyA2>().hurt = true;
+                }
             }
         }
     }
@@ -442,6 +470,10 @@ public class PlayerMovement : MonoBehaviour
                     enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
                     enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
                 }
+                if (enemyGameobject.tag == "Enemy2")
+                {
+                    enemyGameobject.GetComponent<EnemyA2>().hurt = true;
+                }
             }
         }
     }
@@ -459,6 +491,10 @@ public class PlayerMovement : MonoBehaviour
                 {
                     enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
                     enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+                }
+                if (enemyGameobject.tag == "Enemy2")
+                {
+                    enemyGameobject.GetComponent<EnemyA2>().hurt = true;
                 }
             }
         }
@@ -479,6 +515,10 @@ public class PlayerMovement : MonoBehaviour
                     enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
                     enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
                 }
+                if (enemyGameobject.tag == "Enemy2")
+                {
+                    enemyGameobject.GetComponent<EnemyA2>().hurt = true;
+                }
             }
         }
     }
@@ -497,6 +537,10 @@ public class PlayerMovement : MonoBehaviour
                 {
                     enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
                     enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+                }
+                if (enemyGameobject.tag == "Enemy2")
+                {
+                    enemyGameobject.GetComponent<EnemyA2>().hurt = true;
                 }
             }
         } 
@@ -517,6 +561,10 @@ public class PlayerMovement : MonoBehaviour
                     enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
                     enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
                 }
+                if (enemyGameobject.tag == "Enemy2")
+                {
+                    enemyGameobject.GetComponent<EnemyA2>().hurt = true;
+                }
             }
         } 
     }
@@ -534,6 +582,10 @@ public class PlayerMovement : MonoBehaviour
                 {
                     enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
                     enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+                }
+                if (enemyGameobject.tag == "Enemy2")
+                {
+                    enemyGameobject.GetComponent<EnemyA2>().hurt = true;
                 }
             }
         } 
@@ -553,6 +605,10 @@ public class PlayerMovement : MonoBehaviour
                     enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
                     enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
                 }
+                if (enemyGameobject.tag == "Enemy2")
+                {
+                    enemyGameobject.GetComponent<EnemyA2>().hurt = true;
+                }
             }
         } 
     }
@@ -570,6 +626,10 @@ public class PlayerMovement : MonoBehaviour
                 {
                     enemyGameobject.GetComponent<EnemyAi1>().timer = 0.0f;
                     enemyGameobject.GetComponent<EnemyAi1>().hurt = true;
+                }
+                if (enemyGameobject.tag == "Enemy2")
+                {
+                    enemyGameobject.GetComponent<EnemyA2>().hurt = true;
                 }
             }
         } 
