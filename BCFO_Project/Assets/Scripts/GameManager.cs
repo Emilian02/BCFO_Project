@@ -17,46 +17,49 @@ public class GameManager : MonoBehaviour
         
         InitializeLevel();
     }
+    private void Update()
+    {
+        InitializeLevel();
+    }
 
     private void InitializeLevel()
     {
-        switch (level)
+        if (level == 0)
         {
-            case 0:
-                level++;
-                level1.SetActive(true);
-                level2.SetActive(false);
-                level3.SetActive(false);
-                bossLevel.SetActive(false);
-                break;
-            case 1:
-                {
-                    level++;
-                    level1.SetActive(false);
-                    level2.SetActive(true);
-                    level3.SetActive(false);
-                    bossLevel.SetActive(false);
-                }
-                break;
-            case 2:
-                    level++;
-                level1.SetActive(false);
-                level2.SetActive(false);
-                level3.SetActive(true);
-                bossLevel.SetActive(false);
+            level++;
+            level1.SetActive(true);
+            level2.SetActive(false);
+            level3.SetActive(false);
+            bossLevel.SetActive(false);
+        }
+        else if (level == 1)
+        {
+            
+            level1.SetActive(false);
+            level2.SetActive(true);
+            level3.SetActive(false);
+            bossLevel.SetActive(false);
+        }
+        else if (level == 2)
+        {
+            
+            level1.SetActive(false);
+            level2.SetActive(false);
+            level3.SetActive(true);
+            bossLevel.SetActive(false);
+        }
+        else if (level == 3)
+        {
 
-                break;
-            case 3:
-                    level++;
-                level1.SetActive(false);
-                level2.SetActive(false);
-                level3.SetActive(false);
-                bossLevel.SetActive(true);
-
-                break;
-            default:
-                Debug.Log("ERROR");
-                break;
+           
+            level1.SetActive(false);
+            level2.SetActive(false);
+            level3.SetActive(false);
+            bossLevel.SetActive(true);
+        }
+        else
+        {
+            Debug.Log("ERROR");
         }
     }
 
@@ -65,12 +68,15 @@ public class GameManager : MonoBehaviour
         switch (button.name)
         {
             case "Level 1 Button":
+                level++;
                 SceneManager.LoadScene("Level 1");
                 break;
             case "Level 2 Button":
+                level++;
                 SceneManager.LoadScene("Level 2");
                 break;
             case "Level 3 Button":
+                level++;
                 SceneManager.LoadScene("Level 3");
                 break;
             case "Boss Level Button":
