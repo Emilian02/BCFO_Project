@@ -34,24 +34,19 @@ public class LevelManager : MonoBehaviour
     {
         if (enemyHp != null && playerHp != null)
         {
-            if (enemyHp.health == 0 && sceneName != "Boss Level")
+            if (enemyHp.health <= 0 && sceneName != "Boss Level")
             {
                 levelComplete = true;
                 LevelChecker(sceneName, levelComplete);
             }
-            else if (playerHp.health == 0)
+            else if (playerHp.health <= 0)
             {
                 SceneManager.LoadScene("GameOver");
             }
-            else if (enemyHp.health == 0 && sceneName == "Boss Level")
+            else if (enemyHp.health <= 0 && sceneName == "Boss Level")
             {
                 levelComplete = true;
                 SceneManager.LoadScene("Final");
-            }
-
-            if (sceneName == "GameOver")
-            {
-                SceneManager.LoadScene("Map");
             }
         }
     }

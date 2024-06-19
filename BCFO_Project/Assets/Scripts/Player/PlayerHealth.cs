@@ -11,6 +11,7 @@ public class PlayerHealth : MonoBehaviour
     public Gradient gradient;
     public Image sliderFill;
 
+
     void Start()
     {
         currenthealth = health;
