@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     [Header("Pathfinding")]
-    [SerializeField] private Transform target;
+    [SerializeField] public Transform target;
     [SerializeField] private float activeDistance = 50f;
     [SerializeField] private float pathUpdateSeconds = 0.5f;
     [SerializeField] private LayerMask layerMask;
