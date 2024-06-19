@@ -90,6 +90,7 @@ public class EnemyMovement : MonoBehaviour
             }
         }
 
+        //If player is in range
         if (attackZone.detectedCols.Count > 0)
         {
             canMove = false;
