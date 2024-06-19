@@ -6,17 +6,20 @@ public class EnemyShooting : MonoBehaviour
 {
     [SerializeField] private GameObject projectile;
     [SerializeField] private Transform pPosition;
+    [SerializeField] private DetectionZone attackZone;
 
     public float timer;
 
     void Update()
     {
-        timer += Time.deltaTime;
-
-        if(timer > 2)
+        if(attackZone.detectedCols.Count > 0 )
         {
-            timer = 0;
-            Shoot();
+            timer += Time.deltaTime;
+            if(timer > 2)
+            {
+                timer = 0;
+                Shoot();
+            }
         }
     }
 
