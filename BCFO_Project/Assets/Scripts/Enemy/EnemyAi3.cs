@@ -10,14 +10,19 @@ public class EnemyAi3 : MonoBehaviour
     [SerializeField] private EnemyHealth health;
     [SerializeField] private DetectionZone attackZone;
     [SerializeField] private Animator animator;
+    [Header("Hitbox")]
+    [SerializeField] private GameObject rollPoint;
+    [SerializeField] private float radius;
+    [SerializeField] private LayerMask playerMask;
     [Header("Float")]
     [SerializeField] private float rollSpeed;
 
     Rigidbody2D rb;
     bool hasTarget = false;
     float attackTimer = 0.0f;
+    float preparingTimer = 0.0f;
+    float timer = 0.0f;
     public bool hurt = false;
-    public float timer = 0.0f;
 
     private enum AttackStates
     { 
@@ -91,20 +96,13 @@ public class EnemyAi3 : MonoBehaviour
         animator.SetBool("hasTarget", true);
         animator.SetBool("preparing", true);
         movement.enabled = false;
-        attackTimer += Time.deltaTime;
+        preparingTimer += Time.deltaTime;
 
-        if (attackTimer >= 1.5f)
+        if (preparingTimer >= 1f)
         {
             animator.SetBool("preparing", false);
-            attackTimer = 0.0f;
+            preparingTimer = 0.0f;
             attackstate = AttackStates.attacking;
-        }
-
-        if(hurt)
-        {
-            InterruptAnimation();
-            Debug.Log("interrupted");
-            return;
         }
     }
 
@@ -120,6 +118,24 @@ public class EnemyAi3 : MonoBehaviour
         }
     }
 
+    public void RollAttack()
+    {
+        Collider2D[] player = Physics2D.OverlapCircleAll(rollPoint.transform.position, radius, playerMask);
+        foreach (Collider2D playerGameobject in player)
+        {
+            PlayerMovement.slide = true;
+            Debug.Log("Enemy hit you");
+            playerGameobject.GetComponent<PlayerHealth>().health -= 2;
+            playerGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 5f, ForceMode2D.Impulse);
+
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(rollPoint.transform.position, radius);
+    }
+
     private void FinishAttack()
     {
         attackTimer += Time.deltaTime;
@@ -133,23 +149,16 @@ public class EnemyAi3 : MonoBehaviour
             movement.enabled = true;
             hasTarget = false;
         }
-
-        if (hurt)
-        {
-            InterruptAnimation();
-            Debug.Log("interrupted");
-            return;
-        }
     }
 
     private void InterruptAnimation()
     {
-        if (attackstate == AttackStates.preapring)
+        if (attackstate == AttackStates.preapring && hurt)
         {
-            attackTimer = 0.0f;
+            preparingTimer = 0.0f;
             hasTarget = false;
         }
-        if (attackstate == AttackStates.ending)
+        if (attackstate == AttackStates.ending && hurt)
         {
             attackTimer = 1f;
             hasTarget = false;
@@ -166,6 +175,7 @@ public class EnemyAi3 : MonoBehaviour
         timer += Time.deltaTime;
         if (timer >= 1.5f)
         {
+            InterruptAnimation();
             hurt = false;
             timer = 0.0f;
             animator.SetBool("isHurt", hurt);

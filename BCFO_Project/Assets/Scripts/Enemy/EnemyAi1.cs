@@ -18,7 +18,7 @@ public class EnemyAi1 : MonoBehaviour
     [Header("HIT BOXES")]
     [SerializeField] private GameObject punchPoint;
     [SerializeField] private GameObject kickPoint;
-    [SerializeField] public float radius;
+    [SerializeField] private float radius;
     public bool hurt = false;
     public LayerMask players;
 
