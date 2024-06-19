@@ -124,6 +124,7 @@ public class EnemyAi3 : MonoBehaviour
         foreach (Collider2D playerGameobject in player)
         {
             PlayerMovement.slide = true;
+            PlayerMovement.isHurt = true;
             Debug.Log("Enemy hit you");
             playerGameobject.GetComponent<PlayerHealth>().health -= 2;
             playerGameobject.GetComponent<Rigidbody2D>().AddForce(transform.right * 5f, ForceMode2D.Impulse);
