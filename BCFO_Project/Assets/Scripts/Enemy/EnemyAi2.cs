@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 
-public class EnemyA2 : MonoBehaviour
+public class EnemyAi2 : MonoBehaviour
 {
     [Header("Scripts")]
     [SerializeField] private EnemyMovement movement;

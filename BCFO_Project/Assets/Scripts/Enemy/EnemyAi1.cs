@@ -38,6 +38,7 @@ public class EnemyAi1 : MonoBehaviour
         if(health.health <= 0)
         {
             animator.SetBool("isDead", true);
+            animator.SetBool("hasTarget", true);
             movement.enabled = false;
             DeadTimer();
         }
