@@ -10,6 +10,7 @@ public class startCutscene : MonoBehaviour
     public Animator bossAnim;
     public Animator leftAnim;
     public Animator rightAnim;
+    public bool finish;
 
     void  OnTriggerEnter2D(Collider2D collision)
     {
@@ -30,6 +31,6 @@ public class startCutscene : MonoBehaviour
     {
         isCutsceneOn = false;
         camAnim.SetBool("cutScene1", false);
-        Destroy(gameObject);
+        finish = true;
     }
 }
