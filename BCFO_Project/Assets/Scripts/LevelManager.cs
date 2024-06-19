@@ -8,22 +8,10 @@ public class LevelManager : MonoBehaviour
     public EnemyHealth enemyHp;
     public PlayerHealth playerHp;
 
-   
-
     public string sceneName;
 
     void Start()
     {
-        if (enemyHp == null)
-        {
-            Debug.LogError("EnemyHealth reference not set in LevelManager.");
-        }
-
-        if (playerHp == null)
-        {
-            Debug.LogError("PlayerHealth reference not set in LevelManager.");
-        }
-
         if (string.IsNullOrEmpty(sceneName))
         {
             Debug.LogError("Scene name not set in LevelManager.");
@@ -48,10 +36,21 @@ public class LevelManager : MonoBehaviour
             }
         }
 
-
-        if (sceneName == "GameOver L1" && Input.GetKeyDown(KeyCode.Space)) 
+        if (sceneName == "GameOver L1" && Input.GetKeyDown(KeyCode.Space))
         {
             SceneManager.LoadScene("Level 1");
+        }
+        else if (sceneName == "GameOver L2" && Input.GetKeyDown(KeyCode.Space))
+        {
+            SceneManager.LoadScene("Level 2");
+        }
+        else if (sceneName == "GameOver L3" && Input.GetKeyDown(KeyCode.Space))
+        {
+            SceneManager.LoadScene("Level 3");
+        }
+        else if (sceneName == "GameOver B" && Input.GetKeyDown(KeyCode.Space))
+        {
+            SceneManager.LoadScene("Boss Level");
         }
     }
 
@@ -61,7 +60,7 @@ public class LevelManager : MonoBehaviour
         {
             SceneManager.LoadScene("Map");
         }
-        else if (sceneName == "Boss Level" )
+        else if (sceneName == "Boss Level")
         {
             SceneManager.LoadScene("Final");
         }
