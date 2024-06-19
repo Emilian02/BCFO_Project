@@ -44,6 +44,7 @@ public class BossFight : MonoBehaviour
                 {
                     Enemy2();
                 }
+                timer = 0;
             }
         }
     }

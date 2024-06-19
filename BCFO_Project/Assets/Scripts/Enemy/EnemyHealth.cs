@@ -9,6 +9,7 @@ public class EnemyHealth : MonoBehaviour
     public float health;
     public float currenthealth;
 
+
     [SerializeField] public static bool isBoss;
     public bool boss;
 
@@ -16,6 +17,7 @@ public class EnemyHealth : MonoBehaviour
     {
         currenthealth = health;
         isBoss = boss;
+
     }
 
     void Update()

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour
 {
     public float health;
-    public float currenthealth;
+    public float currentHealth;
     public Slider healthSlider;
     public Gradient gradient;
     public Image sliderFill;
@@ -15,7 +15,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Start()
     {
-        currenthealth = health;
+        currentHealth = health;
         healthSlider.maxValue = health;
         sliderFill.color = gradient.Evaluate(1f);
     }
@@ -23,9 +23,9 @@ public class PlayerHealth : MonoBehaviour
 
     void Update()
     {
-        if (currenthealth < health)
+        if (currentHealth < health)
         {
-            currenthealth = health;
+            currentHealth = health;
             
 
         }
@@ -39,7 +39,7 @@ public class PlayerHealth : MonoBehaviour
 
             Debug.Log("L bozo");
         }
-        SetHealth(currenthealth);
+        SetHealth(currentHealth);
     }
 
     public void SetHealth(float health)
