@@ -2299,10 +2299,27 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "-Bear Sprite: The Kooky Goopy Groupie(itch.io)\n-Player Sprite: rvros(itch.io)\n-Boss
-    Sprite: Ethan(Ethan)\n-Eagle Sprite: \n-Level 1 Tiles: Anokolisa(itch.io)\n-Level
-    2 Art: SNK(Fatal Fury 2)\n-Level 3 Tiles: Anokolisa(itch.io)\n-Level 4 Tiles:
-    Trixie(itch.io)\n-Level 4 Art: Konami(Castlevania: Aria of Sorrow)"
+  m_text: '-Bear Sprite: The Kooky Goopy Groupie(itch.io)
+
+    -Player Sprite: rvros(itch.io)
+
+    -Boss
+    Sprite: Ethan(Ethan)
+
+    -Eagle Sprite: ansimuz(itch.io)
+
+    -Level 1 Tiles:
+    Anokolisa(itch.io)
+
+    -Level 2 Art: SNK(Fatal Fury 2)
+
+    -Level 3 Tiles:
+    Anokolisa(itch.io)
+
+    -Level 4 Tiles: Trixie(itch.io)
+
+    -Level 4 Art: Konami(Castlevania:
+    Aria of Sorrow)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
