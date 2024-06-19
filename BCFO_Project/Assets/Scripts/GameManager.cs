@@ -6,7 +6,10 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    
+    public GameObject level1;
+    public GameObject level2;
+    public GameObject level3;
+    public GameObject bossLevel;
     private int level = 0;
 
     private void Start()
@@ -21,35 +24,35 @@ public class GameManager : MonoBehaviour
         {
             case 0:
                 level++;
-                GameObject.Find("Level 1").SetActive(true);
-                GameObject.Find("Level 2").SetActive(false);
-                GameObject.Find("Level 3").SetActive(false);
-                GameObject.Find("Boss Level").SetActive(false);
+                level1.SetActive(true);
+                level2.SetActive(false);
+                level3.SetActive(false);
+                bossLevel.SetActive(false);
                 break;
             case 1:
                 {
                     level++;
-                    GameObject.Find("Level 1").SetActive(false);
-                    GameObject.Find("Level 2").SetActive(true);
-                    GameObject.Find("Level 3").SetActive(false);
-                    GameObject.Find("Boss Level").SetActive(false);
+                    level1.SetActive(false);
+                    level2.SetActive(true);
+                    level3.SetActive(false);
+                    bossLevel.SetActive(false);
                 }
                 break;
             case 2:
                     level++;
-                    GameObject.Find("Level 1").SetActive(false);
-                    GameObject.Find("Level 2").SetActive(false);
-                    GameObject.Find("Level 3").SetActive(true);
-                    GameObject.Find("Boss Level").SetActive(false);
-                
+                level1.SetActive(false);
+                level2.SetActive(false);
+                level3.SetActive(true);
+                bossLevel.SetActive(false);
+
                 break;
             case 3:
                     level++;
-                    GameObject.Find("Level 1").SetActive(false);
-                    GameObject.Find("Level 2").SetActive(false);
-                    GameObject.Find("Level 3").SetActive(false);
-                    GameObject.Find("Boss Level").SetActive(true);
-                
+                level1.SetActive(false);
+                level2.SetActive(false);
+                level3.SetActive(false);
+                bossLevel.SetActive(true);
+
                 break;
             default:
                 Debug.Log("ERROR");
