@@ -11,5 +11,9 @@ public class KillZone : MonoBehaviour
         {
             SceneManager.LoadScene("GameOver L1");
         }
+        if (collision.gameObject.tag == "Enemy")
+        {
+            Destroy(collision.gameObject);
+        }
     }
 }
