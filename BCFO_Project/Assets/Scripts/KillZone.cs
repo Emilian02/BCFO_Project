@@ -9,6 +9,7 @@ public class KillZone : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            SceneManager.LoadScene("GameOver");
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
