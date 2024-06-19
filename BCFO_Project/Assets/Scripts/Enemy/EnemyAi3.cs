@@ -79,7 +79,7 @@ public class EnemyAi3 : MonoBehaviour
                 AwayAttackZone();
             }
 
-            if (movement.rb.velocity.x != 0)
+            if (movement.rb.velocity.x < -0.1 || movement.rb.velocity.x > 0.1)
             {
                 Walking();
             }

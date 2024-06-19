@@ -18,6 +18,7 @@ public class EnemyAi2 : MonoBehaviour
     {
         if(health.health <= 0)
         {
+            projectile.timer = 0;
             animator.SetBool("isDead", true);
             movement.enabled = false;
             DeadTimer();
@@ -32,8 +33,8 @@ public class EnemyAi2 : MonoBehaviour
     {
         timer += Time.deltaTime;
         movement.enabled = false;
-        animator.SetBool("isHurt", true) ;
-        projectile.timer = 0 ;
+        animator.SetBool("isHurt", true);
+        projectile.timer = 0;
 
         if (timer >= 1.5f)
         {

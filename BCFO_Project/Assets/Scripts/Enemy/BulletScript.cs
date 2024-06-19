@@ -8,6 +8,7 @@ public class BulletScript : MonoBehaviour
     private GameObject player;
     private Rigidbody2D rb;
     public LayerMask players;
+    float timer = 0;
 
     void Start()
     {
@@ -33,6 +34,11 @@ public class BulletScript : MonoBehaviour
     }
     void Update()
     {
-        
+        timer += Time.deltaTime;
+
+        if (timer >= 7f)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }
