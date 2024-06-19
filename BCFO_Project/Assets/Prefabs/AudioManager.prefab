@@ -49,13 +49,13 @@ MonoBehaviour:
   sceneName: 
   musicSounds:
   - name: Level 1
-    clip: {fileID: 8300000, guid: cdfc7e5b23fefe74a8bd31c0755e0373, type: 3}
+    clip: {fileID: 8300000, guid: 0755d7fb3f1748a4598111cf5da9bf1f, type: 3}
   - name: Level 2
     clip: {fileID: 8300000, guid: f56346638e97b544bbe0f149b1a4aaba, type: 3}
   - name: Level 3
     clip: {fileID: 8300000, guid: 7d436b3813eb72a42ba29b7ed10764f4, type: 3}
   - name: Boss Level
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 0b9aa1e3ac6012143a0c8353313afb96, type: 3}
   sfxSounds:
   - name: Click
     clip: {fileID: 8300000, guid: 7df8499b0a9b6ed4f904efdacce47c75, type: 3}
