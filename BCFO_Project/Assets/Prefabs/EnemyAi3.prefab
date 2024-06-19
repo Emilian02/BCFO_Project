@@ -356,7 +356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f96b5437b75da8a45976f2d8c009e254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 25
+  health: 75
   currenthealth: 0
   healthSlider: {fileID: 0}
   gradient:
