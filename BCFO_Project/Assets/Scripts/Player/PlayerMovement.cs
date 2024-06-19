@@ -176,6 +176,8 @@ public class PlayerMovement : MonoBehaviour
         if (isHurt == true)
         {
             animator.SetBool("gotHit", true);
+            canAttack = false;
+            canAirAttack = false;
         }
     }
 
