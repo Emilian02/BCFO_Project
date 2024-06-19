@@ -223,7 +223,7 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("DAH", true);
             Debug.Log("DAH");
-            audioPlay.PlayOneShot(electricAudio, 0.2f);
+            audioPlay.PlayOneShot(electricAudio, 1.2f);
             canAttack = false;
         }
         else if (Input.GetButtonDown(Attack1) && (Input.GetButton(horizontalInput) && Input.GetButton(downInput)) && canAttack == true && canJump == true)

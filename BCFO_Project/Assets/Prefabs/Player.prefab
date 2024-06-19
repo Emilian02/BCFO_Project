@@ -376,7 +376,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   electricAudio: {fileID: 8300000, guid: 7bf3f6c70308e1f49aecd5bb351e2f62, type: 3}
-  stage0Audio: {fileID: 8300000, guid: 4f1edaeae92f8e742b5c6ce3647302ac, type: 3}
+  stage0Audio: {fileID: 8300000, guid: 0755d7fb3f1748a4598111cf5da9bf1f, type: 3}
 --- !u!114 &1631316802647205491
 MonoBehaviour:
   m_ObjectHideFlags: 0
