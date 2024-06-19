@@ -8,7 +8,7 @@ public class LevelManager : MonoBehaviour
     public EnemyHealth enemyHp;
     public PlayerHealth playerHp;
 
-    public bool levelComplete = false;
+   
 
     public string sceneName;
 
@@ -36,8 +36,7 @@ public class LevelManager : MonoBehaviour
         {
             if (enemyHp.health <= 0 && sceneName != "Boss Level")
             {
-                levelComplete = true;
-                LevelChecker(sceneName, levelComplete);
+                LevelChecker(sceneName);
             }
             else if (playerHp.health <= 0)
             {
@@ -45,19 +44,24 @@ public class LevelManager : MonoBehaviour
             }
             else if (enemyHp.health <= 0 && sceneName == "Boss Level")
             {
-                levelComplete = true;
                 SceneManager.LoadScene("Final");
             }
         }
+
+
+        if (sceneName == "GameOver L1" && Input.GetKeyDown(KeyCode.Space)) 
+        {
+            SceneManager.LoadScene("Level 1");
+        }
     }
 
-    public void LevelChecker(string sceneName, bool levelComplete)
+    public void LevelChecker(string sceneName)
     {
-        if (sceneName != "Boss Level" && levelComplete)
+        if (sceneName != "Boss Level")
         {
             SceneManager.LoadScene("Map");
         }
-        else if (sceneName == "Boss Level" && levelComplete)
+        else if (sceneName == "Boss Level" )
         {
             SceneManager.LoadScene("Final");
         }
