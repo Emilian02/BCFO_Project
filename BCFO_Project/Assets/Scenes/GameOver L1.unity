@@ -314,8 +314,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: {fileID: 0}
   playerHp: {fileID: 0}
-  levelComplete: 0
-  sceneName: GameOver
+  sceneName: GameOver L1
 --- !u!4 &1133668529
 Transform:
   m_ObjectHideFlags: 0
