@@ -25594,7 +25594,7 @@ GameObject:
   - component: {fileID: 2087634676}
   - component: {fileID: 2087634677}
   - component: {fileID: 2087634678}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
