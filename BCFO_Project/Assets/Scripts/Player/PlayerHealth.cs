@@ -13,6 +13,7 @@ public class PlayerHealth : MonoBehaviour
     public Image sliderFill;
     private float timer = 4;
 
+
     void Start()
     {
         maxHealth = health;
@@ -42,6 +43,7 @@ public class PlayerHealth : MonoBehaviour
         }
         
     }
+
 
     public void SetHealth(float health)
     {
