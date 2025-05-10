@@ -319,7 +319,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Ethan's Kindom
+  m_text: Ethan's Kingdom
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 108bf747af938b44da4d2bde2e9be397, type: 2}
   m_sharedMaterial: {fileID: 257321775887247743, guid: 108bf747af938b44da4d2bde2e9be397, type: 2}
